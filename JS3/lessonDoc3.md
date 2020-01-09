@@ -1,0 +1,64 @@
+HTML
+
+in JS2 you learned about:
+
+- The div tag, which we use to group elements on HTML pages
+- Element properties: innerHTML and innerText
+
+In this section, you will learn one more element and some very important functions that allow us to work with arrays in the browser.
+
+Elements
+
+Select: 
+Allows you to build dropdown menus. The choices go inside option elements, which are children of the select element.
+
+IF you have an array of strings that we want to use for the options, we can use reduce to generate string tags and then set the innerHTML property of select.
+
+
+Broswer Functions
+
+JSON.stringify: 
+When websites send information to each other, the data is always sent and received as strings. So what do you do if you need to send an array across the Internet? You can convert it to a string first!
+
+When data (number, boolean, string, array, objects) is converted into a string, the string is called JSON. JSON stands for JavaScript Object Notation.
+
+Databases also store data as strings, so if you want to store and array of names into the database sometimes you must convert your data to a string first.
+
+You can turn any JavaScript data into a string with JSON.stringify
+
+Although JSON is primarily used for working with browsers, you can also follow along with all the below examples in node.
+
+Except cyclic data
+
+
+JSON.parse
+
+If you used the previous function JSON.stringify to convert an array into a string, how do you convert the string back into an array? You use the JSON.parse function. This function takes a string and parses, or interprets it as Javascript data.
+
+
+JSON (Javascript Object Notation)
+
+JSON is the string that gets returned by JSON.stringify and the argument you pass into JSON.parse.
+
+JSON.stringify(data) ---> JSON ---> JSON.parse(JSON) --> data
+
+
+LocalStorage
+
+LocalStorage lets you store data, like a database in the browser. There are many ways you can make use of LocalStorage when writing a Javascript program.
+
+localStorage.setItem()
+
+localStorage.setItem() is a function that takes in 2 strings.
+
+- The first string tells the browser which title to give that data
+- The second string is the data to stor
+
+localStorage.getItem()
+
+localStorage.getItem() take in only 1 string, the title of the dat to retrieve, and returns the data.
+
+
+UI EXERCISES
+
+Good Engineers spend the majority of their time thinking, not coding. Whether you are working on these exercises, interviewing for a software engineering job, or working on projects, make sure you spend the first half of you allotted time thinking through the problem before actually starting to code.

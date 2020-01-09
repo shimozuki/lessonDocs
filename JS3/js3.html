@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="js3.css">
+    <title>JS3 - Foundations</title>
+  </head>
+  <body>
+  <h1>JS3 - Foundations</h1>
+
+	<div>
+		<button class="hello">Hello</button>
+		<button class="hello">Hola</button>
+		<button class="hello">Buna Ziua</button>
+		<button class="hello">Aloha</button>
+		<button class="hello">Hi World</button>
+	</div>
+
+	<script>
+const hellos = document.querySelectorAll('.hello')
+console.log(hellos, 'hellos')
+
+const buttons = document.querySelectorAll('button')
+
+buttons.forEach((button, i) => {
+	button.onclick = () => {
+		alert(`${button.innerHTML}!`)
+	}
+})
+
+	</script>
+	<script src="js3.js"></script>
+ </body>
+</html>
