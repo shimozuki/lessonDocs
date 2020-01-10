@@ -62,3 +62,29 @@ localStorage.getItem() take in only 1 string, the title of the dat to retrieve, 
 UI EXERCISES
 
 Good Engineers spend the majority of their time thinking, not coding. Whether you are working on these exercises, interviewing for a software engineering job, or working on projects, make sure you spend the first half of you allotted time thinking through the problem before actually starting to code.
+
+
+TODO LIST 
+
+2. Create a todo list:
+Click the ADD button to add a todo item. It should show up as an element and it should be removed when clicked.
+
+
+OBJECTS
+
+Objects are the most important concept in JavaScript. Like arrays, objects can store a wide variety of data.
+
+Just like arrays, imagine a locker room where each locker has a number. When you look into the locker, it can hold almost anything. But with objects, each locker item can have a label. The label is called a key and the locker content is called the value.
+
+To create an object you use {}
+
+console.log() was an object created by an engineer to use
+console has a key called log, the value is a function
+
+Other examples include:
+console.error()
+document.querySelector()
+localStorage.getItem()
+
+
+VARIABLES

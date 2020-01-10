@@ -1,36 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="js3.css">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="js3.css" />
     <title>JS3 - Foundations</title>
   </head>
   <body>
-  <h1>JS3 - Foundations</h1>
+    <h1>JS3 - Foundations</h1>
 
-	<div>
-		<button class="hello">Hello</button>
-		<button class="hello">Hola</button>
-		<button class="hello">Buna Ziua</button>
-		<button class="hello">Aloha</button>
-		<button class="hello">Hi World</button>
-	</div>
+		<h1 class="display">Friends List</h1>
+		Name: <input class="friendInput" type="text">
+		Age: <input class="ageInput" type="text">
 
 	<script>
-const hellos = document.querySelectorAll('.hello')
-console.log(hellos, 'hellos')
+		</script>
 
-const buttons = document.querySelectorAll('button')
-
-buttons.forEach((button, i) => {
-	button.onclick = () => {
-		alert(`${button.innerHTML}!`)
-	}
-})
-
-	</script>
-	<script src="js3.js"></script>
- </body>
+    <script src="js3.js"></script>
+  </body>
 </html>
