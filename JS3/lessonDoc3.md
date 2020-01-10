@@ -88,3 +88,11 @@ localStorage.getItem()
 
 
 VARIABLES
+
+You can also access object values using [] notation
+- document.querySelector('.button')
+- can be written as document['querySelector']('.button')
+- console.log('hello')
+- can be written as console.log['log']('hello')
+
+To get a value in an object, the code is very similar to getting a value in an array. Pass a string (key) instead of an index number.
