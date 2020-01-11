@@ -13,10 +13,33 @@
     <h1>JS3 - Objects</h1>
 
 	<script>
+const magician = {
+	perform: () => {
+		return magician
+	}
+}
+
+const prepareState = {
+	then: () => {
+		console.log('The state has been prepared')
+		return prepareState
+	}
+}
+
+// circular data
+
+const houdini = magician.perform().perform()
+const same = magician === houdini
+const nice = prepareState.then().then().then()
+
+console.log(magician, 'magcian')
+console.log(houdini, 'houdini')
+console.log(same, 'same')
+console.log(nice, 'nice')
 
 
-		</script>
 
+	</script>
     <script src="js3.js"></script>
   </body>
 </html>

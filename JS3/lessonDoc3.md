@@ -96,3 +96,10 @@ You can also access object values using [] notation
 - can be written as console.log['log']('hello')
 
 To get a value in an object, the code is very similar to getting a value in an array. Pass a string (key) instead of an index number.
+
+
+Non-Primitive
+
+Like arrays, objects are non-primitive.
+
+promise object has a then() property which returns a promise object so you can keep chaining more then() properties together until what you want accomplised is completed. 
