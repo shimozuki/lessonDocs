@@ -103,3 +103,21 @@ Non-Primitive
 Like arrays, objects are non-primitive.
 
 promise object has a then() property which returns a promise object so you can keep chaining more then() properties together until what you want accomplised is completed. 
+
+
+OBJECT HELPERS 
+
+The Object.prototype comes with several "helper" functions
+
+Object.keys()
+Object.values()
+Object.entries()
+
+
+PROTOTYPE INHERITANCE
+
+If you want to add functions into every object that you create, just assign them to Object.prototype
+1. Define your function
+2. Assign to Object.protoype
+3. Access Object using this
+

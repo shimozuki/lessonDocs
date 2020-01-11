@@ -1,26 +1,18 @@
 const fn = require('./js3.js');
 
-describe('zeroSquare function', () => {
-  it('should create a 1x1 array of zeroes', () => {
-    const square1 = [[0]];
-    expect(fn.zeroSquare(1)).toEqual(square1);
+describe('commas function', () => {
+  it('should separate three items', () => {
+    const info = {
+      ironman: 'arrogant',
+      spiderman: 'naive',
+      hulk: 'strong',
+    };
+    expect(fn.commas(info)).toEqual('arrogant, naive, strong');
   });
-  it('should create a 1x1 array of zeroes', () => {
-    const square2 = [
-      [0, 0],
-      [0, 0],
-    ];
-    expect(fn.zeroSquare(2)).toEqual(square2);
+  it('should put no commas if only one element', () => {
+    expect(fn.commas(['funny'])).toEqual('funny');
   });
-  it('should create a 1x1 array of zeroes', () => {
-    const square3 = [
-      [0, 0, 0],
-      [0, 0, 0],
-      [0, 0, 0],
-    ];
-    expect(fn.zeroSquare(3)).toEqual(square3);
-  });
-  it('should return an empty array for 0 value', () => {
-    expect(fn.zeroSquare(0)).toEqual([]);
+  it('should return an empty string if no elements', () => {
+    expect(fn.commas([])).toEqual('');
   });
 });
