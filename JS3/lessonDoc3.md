@@ -121,3 +121,8 @@ If you want to add functions into every object that you create, just assign them
 2. Assign to Object.protoype
 3. Access Object using this
 
+
+ARRAYS AS OBJECTS 
+
+In reality, an array is actually an object with special status (you can use numnbers as keys, etc).
+
