@@ -1,0 +1,21 @@
+<body>
+  <h1 style="text-align:center;" class="display"></h1>
+
+  <p class="container"></p>
+
+  <script>
+    const display = document.querySelector('.display');
+    const container = document.querySelector('.container');
+
+    fetch('https://c0d3.com/api/lessons')
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        data.forEach((e, i) => {
+          display.innerText = `There are ${data.length} lessons`;
+          container.innerHTML += `Lesson ${i}: ${e.title} <br/>`;
+        });
+      });
+  </script>
+</body>

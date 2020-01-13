@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="js3.css" />
+    <title>Pokemon</title>
+  </head>
+  <body>
+
+		<h2>A List of Pokemans</h2>
+
+    <div class="container"></div>
+    <script>
+      const container = document.querySelector('.container');
+
+      fetch('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20')
+        .then(res => res.json())
+        .then(data => {
+          data.results.forEach((e, i) => {
+            fetch(`${e.url}`)
+              .then(res => res.json())
+              .then(data => {
+                container.innerHTML += `
+			<h3>${e.name}</h3>
+			<img alt="${e.name}" 
+				src="${data.sprites.front_default}">
+				<br/>`;
+           });
+          });
+        });
+    </script>
+
+    <script src="js3.js"></script>
+  </body>
+</html>

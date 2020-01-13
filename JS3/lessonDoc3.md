@@ -146,3 +146,28 @@ in NEtFLIX's API
 - When you request Google Contacts API, you get a list of you contacts or friend's phone number
 
 Different APIS/Companies will respond with data in different formats or data structures.
+
+
+PROMISES 
+
+A block of code that is waiting to be executed.
+
+Three States:
+-pending
+-fulfilled
+-rejected
+
+ AXIOS
+
+ axios is like request but instead of a function you get returned a promise.
+
+ Instead of passing a function as a second argument, you pass the next function into the promise's then function.
+
+ 
+
+PROMISE ALL
+
+To send more than one request at once. Promise.all, takes in an array of promise objects and returns a promise.
+
+When the then function runs, the argument functions will et an array or responses.
+
