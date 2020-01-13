@@ -126,3 +126,23 @@ ARRAYS AS OBJECTS
 
 In reality, an array is actually an object with special status (you can use numnbers as keys, etc).
 
+
+FUNCTION VS FAT ARROW
+
+The main difference is the "this" keyword
+
+
+LIBRARIES
+
+Now that you know how to use "require" we can use it on the "fs" library
+
+
+APIS
+
+An API (application programming interface) is an interface that other
+engineers set up for you to interact with.
+- When you send a request to NETFLIX API, you get a list of movies
+in NEtFLIX's API
+- When you request Google Contacts API, you get a list of you contacts or friend's phone number
+
+Different APIS/Companies will respond with data in different formats or data structures.
