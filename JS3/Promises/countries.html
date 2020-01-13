@@ -1,0 +1,20 @@
+<body>
+	
+	<div class="container"></div>
+	<script>
+		const container = document.querySelector('.container')
+		const url = 'https://country.register.gov.uk/records.json?page-size=500'
+		fetch(url)
+	.then(res => res.json())
+	.then(data => {
+		const entries = Object.entries(data)
+		entries.forEach((e, i) => {
+			console.log(e[0], 'e of zero')
+			console.log(e[1].item, 'e of one item')
+			console.log(e[1].item[0].name, 'e of one item 0')
+			container.innerHTML +=
+			`${e[0]} name is ${e[1].item[0].name} <br/>`	
+		})
+	})
+	</script>
+</body>

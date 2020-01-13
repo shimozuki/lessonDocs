@@ -171,3 +171,5 @@ To send more than one request at once. Promise.all, takes in an array of promise
 
 When the then function runs, the argument functions will et an array or responses.
 
+
+HACKING AND DEBUGGING
