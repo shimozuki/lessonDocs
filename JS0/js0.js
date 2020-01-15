@@ -1,3 +1,11 @@
+console.log('Javascript File')
+marvin = 0
+marvin = 42
+hands = 89
+
+console.log(marvin, 'marvin')
+console.log(hands, 'hands')
+
 const lupin = 5 === 5
 const harry = 2
 const ron = 4
