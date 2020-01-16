@@ -15,7 +15,7 @@
     <h1 class="display">Paused..</h1>
     <audio
       class="audio"
-      src="https://songz.c0d3.com/js4/examples/0347.mp3"
+      src=""
     ></audio>
 
     <script>
@@ -26,29 +26,6 @@ Paste in a URL to a song, and the audio should start playing.
 When you move your mouse out of the text, the music should stop playing.
 */
 
-      const type = document.querySelector('.type');
-      const player = document.querySelector('.player');
-      const audio = document.querySelector('.audio');
-
-      type.addEventListener('keyup', e => {
-        if (e.key === 'Enter') {
-          audio.src = text.value;
-          console.log(audio, 'audio');
-        }
-      });
-
-      player.addEventListener('mouseover', () => {
-        audio.play();
-        player.innerHTML = 'Playing...';
-      });
-
-      player.addEventListener('mouseout', () => {
-        audio.pause();
-        player.innerHTML = 'Stopped';
-      });
-// ----------
-
-/*
   const audioElement = document.querySelector('.audio')
   const displayElement = document.querySelector('.display')
   const urlInput = document.querySelector('.file')
@@ -78,7 +55,6 @@ When you move your mouse out of the text, the music should stop playing.
     audioElement.pause()
     displayElement.innerText = 'Paused...'
   })
-	*/
 
     </script>
   </body>
