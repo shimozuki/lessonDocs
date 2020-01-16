@@ -85,3 +85,16 @@ element.append(element)
 
 
 
+MEDIA ELEMENTS
+
+Interactice elements that let you add new kinds of experiences
+
+
+AUDIO
+Music on the browser or sounds from a website
+- src (source) attribute
+- controls tells the browser to display audio controls.
+
+The audio tag has a seperate closing tag because it's possible to give it children elements, such as multiple sources or backup content in case the browser doesn't support it.
+
+
