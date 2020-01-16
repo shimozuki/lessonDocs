@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>html2.html</title>
+  </head>
+  <body>
+    <h1>Display mouse position only on hover</h1>
+		<h2 class="header">Hover over me</h2>
+
+		<script>
+const header = document.querySelector('.header')
+
+header.addEventListener('mousemove', (e) => {
+	const cx = event.clientX
+	const cy = event.clientY
+	header.innerHTML = (`X: ${cx} Y: ${cy}`)
+})
+
+header.addEventListener('mouseout', (e) => {
+	header.innerHTML = 'Hello World!'
+})
+
+		</script>
+  </body>
+</html>

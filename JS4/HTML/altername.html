@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Hello, world!</title>
+  </head>
+  <body>
+		<input type="text" class="writer"/>
+		<p class="currentLine"></p>
+		<div class="display"></diV>
+		
+    <h1>Hello, world!</h1>
+		<script>
+const entries = []
+let currentlyShown
+const writer = document.querySelector('.writer')
+const currentLine = document.querySelector('.currentLine')
+const display = document.querySelector('.display')
+
+const x = (n, i=0) => {
+	return i >= n ? "": "X"+x(n, ++i)
+}
+
+const swap = (obj) => {
+	const t = obj.shown
+	obj.shown = obj.hideen
+	obj.hidden = t
+}
+
+const show = (i) => {
+	if (currentShown === undefined) {
+		currentlyShown = i
+		swap(entries[i])
+		render()
+	}
+}
+
+const hide = (i) => {
+	currentlyShown = undefind
+	swap(entries[i])
+	render()
+}
+
+const render = () => {
+	display.innerHTML = entries.reduce((htmlOutput, thisEntry) => {
+		htmlOutput+"<h1 class='hiddden'>" + thisEntry.show+"</h1>"
+	}, "")
+  const allLines = document.querySelectorAll('.hidden')
+  allLines.forEach((thisLine, i) => {
+			thisLine.addEventListener('mouseenter', () => show(i))
+			thisLine.addEventListener('mouseleave', () => hide(i))
+  })
+}
+
+// Everyone is working so hard
+// And learning so much
+writer.addEventListener('keyup', (e) => {
+	if (e.key === "Enter" && writer.value !== "") {
+		render()
+		currentLine.innerText = ""
+		writer.value = ""
+	} else 
+		currentLine.innerText = x(writer.value.length)
+})
+
+		</script>
+  </body>
+</html>

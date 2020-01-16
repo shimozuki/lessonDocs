@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" 
+		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<script>
+			function showCoordinates(event) {
+				var cx = event.clientX;
+				var cy = event.clientY;
+
+				var px = event.pageX;
+				var py = event.pageY;
+
+				var sx = event.screenX;
+				var sy = event.screenY;
+
+				console.log('cx', cx)
+				console.log('cy', cy)
+
+				console.log('px', px)
+				console.log('py', py)
+
+				console.log('sx', sx)
+				console.log('sy', sy)
+			}
+		</script>
+	</head>
+	<body>
+
+		<p onmousedown="showCoordinates(event)">
+		Click this paragraph, and an alert box will alert the x and y 
+		coordinates of the mouse pointer.</p>
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Click Counter</title>
+  </head>
+  <body>
+    <h1>Click Counter</h1>
+		<button class="counter">Add Counter</button>
+		<button class="addNew">Add</button>
+		<h2 class="container"></h2>
+		<h3 class="container1"></h3>
+
+	<script>
+const counter = document.querySelector('.counter')
+const container1 = document.querySelector('.container1')
+
+counter.addEventListener('click', () => {
+	let i = 0
+	const element = document.createElement('h1')
+	element.innerText = `${i} clicks`
+	element.addEventListener('click', () => {
+		i = i + 1
+		element.innerText = `${i} clicks`
+	})
+	container1.append(element)
+})
+
+const addButton = document.querySelector('.addNew')
+const container = document.querySelector('.container')
+
+addButton.addEventListener('click', () => {
+  let i = 0
+  const element = document.createElement('h1')
+  element.innerText = `${i} clicks`
+  element.addEventListener('click', () => {
+    i = i + 1
+  element.innerText = `${i} clicks`
+  })
+  container.append(element)
+})
+
+	</script>
+ </body>
+</html>

@@ -46,3 +46,42 @@ onclick attribute assigns a function to run when the user clicks on an element.
 
 Best practice is to add event listeners: 
 addEventListener('event', function)
+
+--mouseenter--
+Fires when the mouse first moves onto the element
+
+--keyup--
+Fires every time the user releases a key.
+
+What is the difference between (clientX/Y), (screenX/Y), and (pageX/Y) properties?
+
+- clientX
+- clientY
+
+Relative to the upper left edge of the content area of the browser window.
+
+- screenX
+- screenY
+
+Relative to the top left of the physical screen/monitor, this point only moves if you increase or decrease the number of monitors or the monitor resolution.
+
+- pageX
+- pageY
+
+Relative to the top left of the fully rendered content area in the browser.
+
+
+CREATING ELEMENTS
+
+Previously we set the container's innerHTML property. Which means everything had to be cleared out and re-added.
+
+The more efficient way is to use:
+
+document.createElement('tagName')
+- Creates and element with the given tag name and returns the created element.
+
+element.append(element)
+- After creating an element, you must append it to its new parent element to be displayed in the browser. Prepend puts it in the beginning.
+
+
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Register.html</title>
+  </head>
+  <body>
+		<button class="register">Add Person</button>
+		<div class="registerName"></div>
+		<hr/>
+    <h1>Registered One</h1>
+		<div class="container1"></div>
+
+		<button class="addNew">Add Person</button>
+		<div class="container"></div>
+		<hr/>
+		<h3>Registered Two</h3>
+		<div class="rContainer">Nice Cool</div>
+
+		<script>
+/*
+- When add person is clicked 1.
+- A prompt appears 2.
+- Prompt asks: firstName: LastName: and a register button 3.
+- After register is clicked, prompt.innerHTML = ‘’ 4.
+- Before that, container += first & lastName
+*/
+
+const register = document.querySelector('.register')
+const container1 = document.querySelector('.container1')
+const registerName = document.querySelector('.registerName')
+
+register.addEventListener('click', () => {
+	console.log("Registered!")
+	registerName.innerHTML += `
+	First Name: <input type="text" class="first" />
+	Last Name: <input type="text" class="last" />
+	<button class="add">Register</button>
+	`
+
+	const add = document.querySelector('.add')
+
+  add.addEventListener('click', () => {
+		console.log("Add clicked!")
+		const first = document.querySelector('.first').value
+		const last = document.querySelector('.last').value
+
+		container1.innerHTML += `${first} ${last}, `
+		registerName.innerHTML = ''
+	})
+})
+
+
+const addButton = document.querySelector('.addNew')
+const container = document.querySelector('.container')
+const rContainer = document.querySelector('.rContainer')
+const guestList = []
+
+  const addToList = (newGuest) => {
+    guestList.push(newGuest)
+
+    rContainer.innerText = guestList.reduce((acc, e, i) => {
+      let prefix = ', '
+      if (i === 0) { // first char
+        prefix = ''
+      }
+      return acc + `${prefix}${e}`
+    }, '')
+  }
+
+  addButton.addEventListener('click', () => {
+    const element = document.createElement('div')
+    element.innerHTML = `
+    First Name: <input type="text" class="fname">
+    Last Name: <input type="text" class="lname">
+    <button class="register">Register</button>
+    `
+    
+    const fName = element.querySelector('.fname')
+    const lName = element.querySelector('.lname')
+    const registerButton = element.querySelector('.register')
+
+    registerButton.addEventListener('click', () => {
+      addToList(`${fName.value} ${lName.value}`)
+      element.remove()
+    })
+
+    container.append(element)
+  })
+
+
+		</script>
+  </body>
+</html>
