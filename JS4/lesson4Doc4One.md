@@ -98,3 +98,11 @@ Music on the browser or sounds from a website
 The audio tag has a seperate closing tag because it's possible to give it children elements, such as multiple sources or backup content in case the browser doesn't support it.
 
 
+VIDEO
+Video works very similarily to the audio element.
+video.play() doesn't work on newer versions of Chrome.
+
+drawImage takes in 3 arguments:
+1. (Object) element to draw (videoElement)
+2. (Number) x position to start drawing
+3. (Number) y position to start drawing

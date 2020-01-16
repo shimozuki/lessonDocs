@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+		<video class="video"></video>
+		<canvas class="canvas"></canvas>
+
+		<script>
+const canvas = document.querySelector('.canvas')
+const context = canvas.getContext('2d')
+const videoElement = document.querySelector('.video')
+
+const delayPicture = () => {
+	setTimeout(() => {
+		canvas.width = videoElement.videoWidth
+		canvas.height = videoElement.videoHeight
+		context.drawImage(videoElement, 0, 0)
+		delayPicture()
+	}, 500)
+}
+
+navigator.mediaDevices.getUserMedia({
+	video: true,
+	audio: true,
+}).then((stream) => {
+	videoElement.srcObject = stream
+	videoElement.play()
+	delayPicture()
+})
+		</script>
+  </body>
+</html>

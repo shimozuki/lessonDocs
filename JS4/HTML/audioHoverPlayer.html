@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>audioHoverPlayer.html</title>
+  </head>
+  <body>
+    <h1>Audio Hover Player</h1>
+    <input class="file" type="text" />
+    <h1 class="display">Paused..</h1>
+    <audio
+      class="audio"
+      src="https://songz.c0d3.com/js4/examples/0347.mp3"
+    ></audio>
+
+    <script>
+      /*
+1. [Build an audio hover player]
+(https://songz.c0d3.com/js4/examples/audio.html): 
+Paste in a URL to a song, and the audio should start playing.
+When you move your mouse out of the text, the music should stop playing.
+*/
+
+      const type = document.querySelector('.type');
+      const player = document.querySelector('.player');
+      const audio = document.querySelector('.audio');
+
+      type.addEventListener('keyup', e => {
+        if (e.key === 'Enter') {
+          audio.src = text.value;
+          console.log(audio, 'audio');
+        }
+      });
+
+      player.addEventListener('mouseover', () => {
+        audio.play();
+        player.innerHTML = 'Playing...';
+      });
+
+      player.addEventListener('mouseout', () => {
+        audio.pause();
+        player.innerHTML = 'Stopped';
+      });
+// ----------
+
+/*
+  const audioElement = document.querySelector('.audio')
+  const displayElement = document.querySelector('.display')
+  const urlInput = document.querySelector('.file')
+
+  let isStarted = false
+  urlInput.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      audioElement.src = urlInput.value
+      audioElement.play()
+      displayElement.innerText = 'Playing...'
+      isStarted = true
+    }
+  })
+
+  displayElement.addEventListener('mouseenter', () => {
+    if (!isStarted) {
+      return
+    }
+    displayElement.innerText = 'Playing...'
+    audioElement.play()
+  })
+
+  displayElement.addEventListener('mouseleave', () => {
+    if (!isStarted) {
+      return
+    }
+    audioElement.pause()
+    displayElement.innerText = 'Paused...'
+  })
+	*/
+
+    </script>
+  </body>
+</html>
