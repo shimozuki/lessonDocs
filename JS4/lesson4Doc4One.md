@@ -106,3 +106,10 @@ drawImage takes in 3 arguments:
 1. (Object) element to draw (videoElement)
 2. (Number) x position to start drawing
 3. (Number) y position to start drawing
+
+
+EXTERNAL LIBRARIES
+
+You can import JavaScript Libraries that other people have written to your HTML. You just need a script tag and src with the URL.
+
+ChanceJS: Helps generate random data!

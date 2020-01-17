@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>explodingText.html</title>
+  </head>
+
+  <body>
+
+    <h1>Exploding Text</h1>
+		<input class="textInput" type="text"/>
+		<canvas class="canvas" width="800" height="500"></canvas>
+		<h1 class="container"></h1>
+
+		<script>
+/*
+When you hit enter, the characters explode.
+- Use the `.split('')` function from the last 
+section to a string into an array of letters.
+
+const a = "hello"
+a.split('') // returns ["h", "e", "l", "l", "o"]
+
+- To generate a random number from 0 to 800, you must use 
+a combination of `Math.floor` and `Math.random`:
+
+const rand = Math.floor( Math.random() * 800 )
+// rand is a random number between 0 (inclusive) and 800 
+(not inclusive)
+*/
+
+const container = document.querySelector('.container')
+const canvas = document.querySelector('.canvas') 
+const input = document.querySelector('.textInput')
+// focus onto the input
+input.focus()
+
+input.addEventListener('keyup', (e) => {
+	if (e.key.length < 2) {
+		console.log('e', e.key)
+	} else if (e.key === 'Enter') {
+		console.log('Enter has been hit!')
+		container.innerHTML = input.value
+	} else if (e.key === 'Shift') {
+		console.log('Shift has been hit!')
+	}
+})
+
+const context = canvas.getContext('2d')
+context.font = "50px Comic Sans MS"
+context.fillStyle = "lightblue"
+context.fillRect(0, 0, 800, 500)
+
+const explode = (str) => {
+	context.fillStyle = "lightgreen"
+	context.fillRect(0, 0, 800, 500)
+	context.fillStyle = "black"
+
+	const charList = str.split('')
+	charList.forEach((char, i) => {
+		context.fillText(char, Math.floor(Math.random() * 800),
+		Math.floor(Math.random() * 500))
+	})
+}
+
+  input.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      explode(input.value)
+
+      // clear the input
+      input.value = ''
+    }
+  })
+
+
+		</script>
+  </body>
+</html>
