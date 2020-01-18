@@ -32,3 +32,5 @@ i - insert for vim
 /<word> - search for word
 ctrl n - nerdTree
 ctrl n ? - nerdTree HELP
+
+Being able to recieve constructive criticism is critical to a corporate environment.

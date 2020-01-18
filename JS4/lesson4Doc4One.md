@@ -164,3 +164,24 @@ Block elements will stack up on top of each other vertically.
 MULTIPLE CLASSES
 
 The HTML class attribute allows you to specify multiple class
+
+
+CSS
+So far, we have learned that HTML is a collection of tags, which are instructions for the browser. <script> tells the browser to run everything inside that tag as Javascript.
+
+<style> tells the browser to run everything inside that tag as CSS, a language that helps us make websites beautiful by changing the color, position, and other properties of browser elements. 
+
+CSS is a simple language. You only need to know 3 things.
+
+1. Selector: ALL elements that match your selector will have the properties inside the {} applied to them.
+
+2. Properties: Each property is seperated by ;
+
+3. Values: Values are going to be different depending on what preperties you use.
+
+rgba - red, green, blue and alpha (opacity 1 to 0)
+
+
+SELECTION
+
+
