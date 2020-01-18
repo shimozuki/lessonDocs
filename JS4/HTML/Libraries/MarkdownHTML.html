@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+		<!-- MarkedJS -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <title>MarkdownHTML.html</title>
+  </head>
+  <body>
+
+    <h1>Markdown to HTML</h1>
+
+		<textarea class="input" name="30" rows="10" cols="50"></textarea>
+		<div class="display"></div>
+		<hr/>
+		<div class="container"></div>
+
+		<script>
+document.querySelector('.container').innerHTML = marked('# Marked in the browser\n\nRendered by **marked**.')
+
+const ip = document.querySelector('.input')
+const display = document.querySelector('.display')
+const container = document.querySelector('.container')
+
+ip.focus()
+
+ip.addEventListener('keyup', (e) => {
+	if (e.key === 'Enter') {
+		container.innerHTML = ''
+		container.innerHTML += marked(ip.value)
+	}
+	display.innerHTML = marked( ip.value )
+})
+
+		</script>
+  </body>
+</html>

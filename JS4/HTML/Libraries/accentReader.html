@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <title>accentReader.html</title>
+  </head>
+  <body>
+    <h1>Accent Reader</h1>
+		<select class="selector"></select>
+
+		<script>
+
+const textInput = document.querySelector('.textInput')
+const accentSelector = document.querySelector('.accents')
+const voices = responsiveVoice.getVoices()
+accentSelector.innerHTML = voices.reduce((acc, e) => {
+	console.log(e)
+	return acc + `
+	<option value="${e.name}">${e.name}</option>
+	`
+}, '')
+accentSelector.addEventListener('change', () => {
+	const voice = accentSelector.value
+	responsiveVoice.speak( textInput.value, voice )
+})
+
+		</script>
+  </body>
+</html>

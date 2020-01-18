@@ -113,3 +113,54 @@ EXTERNAL LIBRARIES
 You can import JavaScript Libraries that other people have written to your HTML. You just need a script tag and src with the URL.
 
 ChanceJS: Helps generate random data!
+
+
+WRITING YOUR OWN LIBRARY
+
+You can create your own library for your other HTML files to use so you don't have to write the same code over and over again.
+
+Software engineers almost never write JavaScript into the script tag directly. They usually write their Javascritp into a file. This file then gets compressed by a minifier (all the spaces in the code are removed, variable names are shortened) and saved into another file.
+
+When providing a library, you will find yourself updating and changing your code over time. If 1000 people are depending on your library, you should not simply updated the existing library.
+
+Otherwise, if you introduce bugs or change features, 1000 people will have your bug or changed feature.
+
+For this reason, when we name libraries we usually put a version decimal in the file name and (very rarely) change the file after that (e.g. lib.v2.0.1.js)
+
+
+HTML Theory
+
+Fundamentals of web design that you should know as a software engineer.
+
+--- Inline vs. Block ---
+
+Every HTML element that the browser display is either an inline element or a block element.
+
+(There are also two other types, inline-block and flex, which can only be specified using CSS. These will be covered in the CSS section.)
+
+Inline: only take up the width of their contents.
+(input, a, img, button amd select)
+
+Block: Takes up 100% of the width available to them.
+(div, h1, h2, p)
+
+Inline
+
+Inline elements only take up the width of their inner contents. 
+Examples of inline elements are input, a, img, button and select.
+
+The a (link) tag is a link
+"a stands for anchor"
+
+meaning this tag can be used as a link to go somewhere else or as an anchor point that other pages can use to link to that specific place on the page. The href attribute stands for "hypertext reference", and tells the browser where to go when teh link is clicked. The test inside the tags is what gets displayed.
+
+Block
+
+Block elements take up 100% of the width available to them. 
+This is the width of their container, or if the page (body) if they don't have a container.
+Block elements will stack up on top of each other vertically.
+
+
+MULTIPLE CLASSES
+
+The HTML class attribute allows you to specify multiple class
