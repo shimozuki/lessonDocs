@@ -184,4 +184,76 @@ rgba - red, green, blue and alpha (opacity 1 to 0)
 
 SELECTION
 
+Selecting By:
+- Element - All h1 elements will have the color property.
+- Attribute - All elements with the attribute type="text" will have the color property.
+- Class - All elemens with the class of title2 will have the color property.
+- Children - All h1 elements that are children of a div will have the color property.
 
+Combining Selectors:
+- All h1 elements with the class title2 will have the font-size property.
+- All h1 elements and all elements with the class title2 will have the color property.
+
+
+Selection States:
+You can tweak CSS properties that get applied based on the state of the element.
+
+These types of selectors are called pseudo-classes.
+Others include :visited, :active, :focus and more.
+
+Pseudo-Classes:
+A CSS pseudo-class is a keyword added to a selector that specifies a special state of the selected elements. E.x. :hover can be used to change a button's color when the user's pointer hovers over it.
+
+Selection Collisions:
+When an element matches multiple selectors that are setting the same property.
+
+If multiple selectors have the exact same specifity, precedence applies to the last one.
+
+CSS Specifity:
+The set of rules applied to CSS selectors in order to determine which style is applied to an element. The more specific a CSS style is, the higher point value it accrues, and the likelier it is to be present on the element's style.
+
+Three buckets:
+1. Type selectors & pseudo-elements
+// Type selectors
+h1 { ... }
+
+// Pseudo elements
+::before { ... }
+
+2. Class selectors, attribute selectors, and pseudo classes
+// Class selectors
+.cat { ... }
+
+// Attribute selectors
+[type="radio"] { ... }
+
+// Pseudo classes
+:hover { ... }
+
+3. ID Selectors
+// ID selectors
+#cat { ... }
+
+Highest <--- lowest specifity
+StyleAttribute <- ID <- Class, pseudo-class, attribute <- Elements
+
+Inline style attribute overried all other elements
+ID second
+Classes third
+Elements fourth
+
+
+Simple CSS Properties:
+In addition to the CSS properties abover(color, font-size, etc.),
+below are a few more common properties that can add cool effects
+to your pages.
+
+Position:
+Top, left, right and bottom to precisely adjust elements' placements and create all kinds of interesting layouts.
+
+Relative:
+Puts an element relative to where it was supposed to be.
+
+Fixed:
+
+Doesn't occupy its default position.
