@@ -255,5 +255,42 @@ Relative:
 Puts an element relative to where it was supposed to be.
 
 Fixed:
-
 Doesn't occupy its default position.
+No matter how small the browser window gets the element wil always be fixed
+
+Absolute:
+The absolute position value is very similar to fixed; the obly difference is that the top, bottom, left and right properties are relative to the 
+element's parent instead of the window.
+
+Z-Index:
+When multiple elements are all positioned in the same place.
+You can set the z-index to help the computer determine how
+the elements are ordered. An element with a higher z-index will
+always be drawn abover an element with a lower z-index.
+
+BoxModel:
+Every HTML element displayed on your page follows the box model.
+This means that every element has a margin (distance between elements),
+a border inside the margin, and padding within the border.
+
+Width:
+When you specify the width of an element, you are setting the width of the content.
+
+Display:
+In addition to the inline and block display options, there are two other options given by the display CSS property.
+
+Inline-block:
+block elements take up 100% of the width of their parents; inline elements take up only the width of their content.
+
+display: inline-block; 
+only takes up a certain, specified width.
+
+Flexbox:
+A display mode in CSS that lets a container resize its children as needed to maximuze the use of space along an axis
+
+display: flex;
+
+
+EXTERNAL LIBRARIES:
+You can use someone else's css with a link tag specifiying the href
+
