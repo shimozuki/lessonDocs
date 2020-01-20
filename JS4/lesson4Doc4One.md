@@ -294,3 +294,24 @@ display: flex;
 EXTERNAL LIBRARIES:
 You can use someone else's css with a link tag specifiying the href
 
+
+JAVASCRIPT & CSS
+The best practice way to change an element's appearance is to add and remove classess. Every element has a property called classList that contains functions to let you manipulate classes.
+
+3 functions to know for classess:
+1. contains:
+takes in a string param and returns true or false, depending if the element contains the class.
+
+2. add:
+takes in a string parameter and adds the new class to the element.
+
+3. remove:
+Takes in a string paramter and removes the class from the element.
+
+
+STYLING:
+Sometimes you need to change the CSS properties of an element directly. You can do this by changing the style of an element.
+
+element.style.property = ""
+
+
