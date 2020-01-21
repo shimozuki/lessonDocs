@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Classes.html</title>
+  </head>
+  <body>
+		<h1>Bubbles n' stuff</h1>
+		<div class="screen"></div>
+		<style>
+.screen {
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: rgba(200, 255, 255, 1);
+}
+.circle {
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	border: 2px rgba(0,0,0,1) solid;
+	background: rgba(0, 255, 255, 1);
+	position: fixed;
+}
+		</style>
+		<script>
+const main = document.querySelector('.screen')
+
+function Circle(x, y) {
+	y = y-50
+	x = x-50
+	const element = document.createElement('div')
+	element.classList.add('circle')
+	element.style.top = `${y}px`
+	element.style.left = `${x}px`
+	main.append(element)
+	setInterval(() => {
+		y -= 1
+		element.style.top = `${y}px`
+	}, 10)
+}
+
+main.addEventListener('click', (e) => {
+	console.log('x position is', e.clientX)
+	console.log('y position is', e.clientY)
+	new Circle(e.clientX, e.clientY)
+})
+		</script>
+  </body>
+</html>

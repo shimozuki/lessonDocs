@@ -6,38 +6,63 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-		<style>
-.large {
-	z-index: 0;
-}
-.mouse {
-	z-index: 1;
-	top: -150px;
-}
-		</style>
+    <style>
+      body {
+        overflow: hidden;
+      }
+      .small {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .big {
+        position: absolute;
+				left: 0;
+				bottom: 0;
+      }
+      .arrow {
+        position: absolute;
+        top: 0;
+      }
+    </style>
 
     <title>mouseMagnifier.html</title>
   </head>
   <body>
+
     <h1>Dog Magnifier</h1>
-    <img class="small" src="https://songz.c0d3.com/js4/exercises/300x225.jpeg" alt="small" />
-    <img class="large" src="https://songz.c0d3.com/js4/exercises/800x600.jpeg" alt="large" />
-    <img class="mouse" src="https://songz.c0d3.com/js4/exercises/arrow.png" alt="mouse"/>
+    <div class="small">
+      <img
+        src="https://songz.c0d3.com/js4/exercises/300x225.jpeg"
+        alt=""
+      />
+    </div>
 
-		<script>
-const small = document.querySelector('.small')
-const large = document.querySelector('.large')
-const mouse = document.querySelector('.mouse')
+    <div class="big">
+      <img
+        src="https://songz.c0d3.com/js4/exercises/800x600.jpeg"
+        alt=""
+      />
+      <img
+        class="arrow"
+        src="https://songz.c0d3.com/js4/exercises/arrow.png"
+        alt=""
+        style="top:501.333px; left: 56px;"
+      />
+    </div>
 
-small.addEventListener('mousemove', (e) => {
-	const y = e.clientY
-	const x = e.clientX
-	console.log("Small has been scolled")
-		console.log('Y', e.screenY)
-		console.log('X', e.screenX)
-	mouse.clientY = y
-	mouse.clientX = x
-})
-		</script>
+    <script>
+      const small = document.querySelector('.small');
+      const big = document.querySelector('.big');
+      const arrow = document.querySelector('.arrow');
+
+      small.addEventListener('mousemove', e => {
+        const bigX = e.clientX * (800 / 300);
+        const bigY = e.clientY * (800 / 300);
+
+        arrow.style.left = `${bigX}px`;
+        arrow.style.top = `${bigY}px`;
+      });
+    </script>
   </body>
 </html>

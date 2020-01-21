@@ -315,3 +315,18 @@ Sometimes you need to change the CSS properties of an element directly. You can 
 element.style.property = ""
 
 
+CLASS OBJECTS
+
+As our programs get more complex, we'll need a way of making templates that lets us quickly create multiple, similar objects.
+
+Just like how you follow a blueprint to build a house, you use a class to create multiple objects.
+
+Heavily used in gaming.
+
+To define a class we simply write a function using the "function" keyword.
+
+This function can take in arguments to help create the object.
+
+Using classes helps you organize your code better.
+
+Javascript class has nothing to do with an HTML tag's class attribute.
