@@ -330,3 +330,12 @@ This function can take in arguments to help create the object.
 Using classes helps you organize your code better.
 
 Javascript class has nothing to do with an HTML tag's class attribute.
+
+
+PROMISES
+
+When a function (like fetch) returns a promise, it is actually returning a new promise class: new Promise(...)
+
+- The function should take in two function parameters, called resolve and reject
+- Running resolve will run the then property of the promise object
+- When you input function runs the resolve function, the arguments you pass into resolve will be immediately passed into the then callback in the promise chain.
