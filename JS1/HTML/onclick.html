@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>onclick.html</title>
+  </head>
+  <body>
+    <h1>HTML OnClick</h1>
+		<button class="submit1">Click Me</button>
+		<button class="GOT">Game Of Thrones</button>
+		<script>
+const button1 = document.querySelector('.submit1')
+const GOT = document.querySelector('.GOT')
+
+GOT.addEventListener('click', () => {
+	alert("House Lannister!")
+})
+
+button1.addEventListener('click', () => {
+	alert("Ouch!")
+})
+		</script>
+  </body>
+</html>
+

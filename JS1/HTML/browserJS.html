@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>browserJS.html</title>
+  </head>
+  <body>
+    <h1>Browser JavaScript</h1>
+		<h2>JS0</h2>
+		<h5>Challenge 1</h5>
+		<input class="input1" type="text" />
+		<input class="input2" type="text" />
+		<button class="submit1">Submit</button>
+		<hr />
+		<input class="input3 input hello" type="text" />
+
+		<script>
+const element1 = document.querySelector('.input1')
+const element2 = document.querySelector('.input2')
+const button1 = document.querySelector('.submit1')
+
+const ele1 = document.querySelector('.input3')
+const ele2 = document.querySelector('.input')
+const ele3 = document.querySelector('.hello')
+
+const isOneTwoSame = ele1 === ele2
+const isOneThreeSame = ele1 === ele3
+const isTwoThreeSame = ele2 === ele3
+
+const isSame = ele1 === document.querySelector('.hello.input')
+
+console.log(element1, 'input 1')
+console.log(element2, 'input 2')
+console.log(button1, 'button 1')
+
+console.log(isOneTwoSame, true)
+console.log(isOneThreeSame, true)
+console.log(isTwoThreeSame, true)
+
+console.log(isSame, true)
+		</script>
+  </body>
+</html>

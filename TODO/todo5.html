@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style>
+      h1 {
+        margin: 10px;
+      }
+      .inputArea {
+        margin: 10px;
+      }
+      .textInput {
+        width: 100%;
+      }
+      .todoList {
+        width: 400px;
+        border: 1px solid rgba(0, 0, 255, 1);
+        margin: auto;
+      }
+      .todoItem {
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+        background: rgba(200, 200, 200, 1);
+        margin-top: 10px;
+      }
+      .todoContent {
+        width: 100%;
+      }
+      .createdAt {
+        color: rgba(0, 20, 100, 1);
+        font-size: 12px;
+      }
+      .todoContent.completed {
+        text-decoration: line-through;
+      }
+    </style>
+
+    <title>todo5.html</title>
+  </head>
+  <body>
+    <div class="todoList">
+      <h1>TODO LIST EXAMPLE</h1>
+      <div class="inputArea">
+        <input class="textInput" type="text" />
+      </div>
+      <div class="display"></div>
+    </div>
+
+    <script>
+      const display = document.querySelector('.display');
+
+      function Item(todo, idx) {
+        const todoDate = new Date(todo.createdAt || Date.now());
+        const div = document.createElement('div');
+
+        div.classList.add('todoItem');
+
+        div.innerHTML = `
+      	<div class="todoContent">
+      	${todo.task}
+      	<span class="createdAt">${todoDate.toLocaleString()}</span>
+      	</div>
+      	<button class="deleteButton">Delete</button>
+      	`;
+
+        display.append(div);
+
+        div.querySelector('.deleteButton').addEventListener('click', () => {
+          todoList.splice(idx, 1);
+          localStorage.setItem('todos', JSON.stringify(todoList));
+          div.remove();
+        });
+      }
+
+      const todoList = JSON.parse(localStorage.getItem('todos') || '[]');
+
+      todoList.forEach((todo, idx) => {
+        new Item(todo, idx);
+      });
+
+      const createNew = task => {
+        const taskIndex = todoList.length;
+        const taskObj = {
+          task: task,
+          createdAt: Date.now(),
+        };
+        todoList.push(taskObj);
+        new Item(taskObj, taskIndex);
+
+        textInput.value = '';
+        localStorage.setItem('todos', JSON.stringify(todoList));
+      };
+
+      const textInput = document.querySelector('.textInput');
+      textInput.addEventListener('keyup', e => {
+        if (e.key === 'Enter') {
+          const newTask = textInput.value;
+          if (!newTask) {
+            return;
+          }
+          createNew(newTask);
+        }
+      });
+
+      textInput.focus();
+    </script>
+  </body>
+</html>

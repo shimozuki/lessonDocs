@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+		<style>
+body {
+	text-align: center;
+}
+		</style>
+
+    <title>todo1.html</title>
+  </head>
+  <body>
+    <h1>TODO LIST</h1>
+		<input class="type" type="text" >
+		<button class="add">Add</button>
+		<hr>
+		<div class="list"></div>
+
+		<script>
+const type = document.querySelector('.type') 
+const list = document.querySelector('.list')
+const addButton = document.querySelector('.add')
+
+const todos = []
+
+const render = () => {
+	list.innerHTML = todos.reduce((acc, curr) => {
+		return acc + `<h2 class="todo">${curr}</h2>`
+	}, '')
+
+	const lists = document.querySelectorAll('.todo')
+	console.log(lists, 'lists')
+	lists.forEach((e, i) => {
+		e.onclick = () => {
+			todos.splice(i, 1)
+			render()
+		}
+	})
+}
+
+addButton.addEventListener('click', () => {
+	const value = type.value
+	todos.unshift(value)
+	render()
+})
+
+
+
+		</script>
+  </body>
+</html>
