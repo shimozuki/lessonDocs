@@ -64,12 +64,6 @@ UI EXERCISES
 Good Engineers spend the majority of their time thinking, not coding. Whether you are working on these exercises, interviewing for a software engineering job, or working on projects, make sure you spend the first half of you allotted time thinking through the problem before actually starting to code.
 
 
-TODO LIST 
-
-2. Create a todo list:
-Click the ADD button to add a todo item. It should show up as an element and it should be removed when clicked.
-
-
 OBJECTS
 
 Objects are the most important concept in JavaScript. Like arrays, objects can store a wide variety of data.

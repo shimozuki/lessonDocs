@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>exercise3.html</title>
+  </head>
+  <body>
+    <h1>Create a storybook</h1>
+		<button class="previous">Previous</button>
+		<button class="next">Next</button>
+		<hr>
+		<div class="currentStory"></div>
+		<hr>
+		<textarea class="newStory"></textarea>
+		<button class="submit">Submit</button>
+
+		<div class="stories"></div>
+
+		<script>
+const prev = document.querySelector('.previous')
+const next = document.querySelector('.next')
+const currStory = document.querySelector('.currentStory')
+
+const newStory = document.querySelector('.newStory')
+const submit = document.querySelector('.submit')
+const stories = document.querySelector('.stories')
+
+const book = [
+	"Lorem Ipsum",
+	"Dolor Seneca",
+	"Nice man",
+	"Eminem"
+]
+
+let index = 0
+
+currStory.innerText = book[index]
+
+const render = () => {
+
+stories.innerHTML = book.reduce((acc, curr) => {
+	acc += `<p class="story">${curr}</p>`
+	return acc
+}, '')
+
+	const storyBook = document.querySelectorAll('.story')
+	storyBook.forEach((e, i) => {
+		e.onclick = () => {
+			book.splice(i, 1)
+			render()
+		}
+	})
+}
+
+submit.onclick = () => {
+	const value = newStory.value
+	book.unshift(value)
+	render()
+}
+
+next.onclick = () => {
+	index += 1
+	if (index >= book.length) {
+		index = 0
+	}
+	currStory.innerText = book[index]
+}
+
+prev.onclick = () => {
+	index -= 1
+	if (index < 0) {
+		index = book.length 
+	}
+	currStory.innerText = book[index]
+}
+
+render()
+		</script>
+  </body>
+</html>

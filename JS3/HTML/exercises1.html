@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>exercises1.html</title>
+  </head>
+  <body>
+    <h1>Add Option</h1>
+		<input class="option" type="text">
+		<button class="add">Add</button>
+		<select class="options"></select>
+
+		<script>
+const option = document.querySelector('.option')
+const add = document.querySelector('.add')
+const options = document.querySelector('.options')
+const selection = []
+
+/*
+add.addEventListener('click', () => {
+	const val = option.value
+	console.log(val, 'value')
+	const element = document.createElement('option')
+	element.innerText = val
+	options.append(element)
+})
+*/
+
+/*
+add.onclick = () => {
+	const val = option.value
+	options.innerHTML += `<option>${val}</option>`
+}
+*/
+
+add.onclick = () => {
+	const newValue = option.value
+	selection.unshift(newValue)
+	options.innerHTML = selection.reduce((acc, e) => {
+		return acc + `<option value=${e}>${e}</option>`
+	}, '')
+}
+		</script>
+  </body>
+</html>
