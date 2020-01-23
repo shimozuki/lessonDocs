@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>exercise5.html</title>
+  </head>
+  <body>
+    <h1>String Breaker</h1>
+		<input class="type" type="text">
+		<button class="generate">Generate</button>
+		<div class="container"></div>
+
+		<script>
+const generate = document.querySelector('.generate')
+const type = document.querySelector('.type')
+const container = document.querySelector('.container')
+
+generate.addEventListener('click', () => {
+	const values = type.value.split('')
+	console.log('value', values)
+
+	container.innerHTML = ''
+
+	values.forEach((e, i) => {
+		container.innerHTML += `<h1>${e}</h1>`
+	})
+})
+		</script>
+  </body>
+</html>

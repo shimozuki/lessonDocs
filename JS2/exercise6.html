@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>exercise6.html</title>
+  </head>
+  <body>
+
+    <h1>House of Primes</h1>
+		<input class="type" type="number" >
+		<button class="start">Start</button>
+		<h1 class="container"></h1>
+
+		<script>
+const type = document.querySelector('.type')
+const start = document.querySelector('.start')
+const container = document.querySelector('.container')
+
+const isPrime = (num, i=1) => {
+	if (i === num) return
+	if (i % 2 !== 0) { container.innerHTML += `${i}...`}
+	return isPrime(num, i+1)
+}
+
+start.addEventListener('click', () => {
+	const num = +type.value
+	container.innerHTML = ''
+	isPrime(num)
+})
+		</script>
+  </body>
+</html>

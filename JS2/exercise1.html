@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>exercise1.html</title>
+  </head>
+  <body>
+
+    <h1>Create an HTML element</h1>
+		<input class="type" type="text" />
+		<h1 class="change"></h1>
+		<button class="submit">Submit</button>
+
+		<script>
+const type = document.querySelector('.type')
+const change = document.querySelector('.change')
+const submit = document.querySelector('.submit')
+
+submit.addEventListener('click', () => {
+	const val = type.value
+	change.innerText = val
+})
+		</script>
+  </body>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>exercise2.html</title>
+  </head>
+  <body>
+    <h1>Start with a button called start</h1>
+		<div class="container">
+		<button class="start">Start</button>
+		</div>
+
+		<script>
+const container = document.querySelector('.container')
+
+const startApp = () => {
+	container.innerHTML = `
+	<button class="start">Start</button>
+	`
+
+	const startButton = document.querySelector('.start')
+
+	startButton.onclick = () => {
+		container.innerHTML = `
+		<input type="text" />
+		<button class="cancel">Cancel</button>
+		`
+
+		const cancel = document.querySelector('.cancel')
+		cancel.onclick = startApp
+	}
+}
+
+startApp()
+
+		</script>
+  </body>
+</html>
