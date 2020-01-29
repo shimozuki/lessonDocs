@@ -50,4 +50,11 @@ describe('sumAll function', () => {
     const result = helpers.sumAll(arr) 
     expect(result).toEqual(15) 
   })
+  it ('should add string nums', () => {
+    // ['9', '8', '7']
+    // 24
+  })
+  it ('should not add strings', () => {
+    // []
+  })
 })
