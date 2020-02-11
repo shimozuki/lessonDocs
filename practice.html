@@ -1,0 +1,26 @@
+<div class="container">
+	<button class="submit">Submit</button>
+</div>
+
+<script>
+	const container = document.querySelector('.container')
+
+const setUp = () => {
+  const submit = document.querySelector('.submit')
+
+  submit.addEventListener('click', () => {
+		container.innerHTML = `
+		<input />
+		<button class="cancel">cancel</button>
+		`
+
+		const cancel = container.querySelector('.cancel')
+		cancel.addEventListener('click', () => {
+			container.innerHTML = '<button class="submit">Submit</button>'
+			setUp()
+		})
+	})
+}
+
+setUp()
+</script>
