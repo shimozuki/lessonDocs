@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Stopwatch</title>
+  </head>
+  <body>
+    <h1 class="watch">00:00</h1>
+		<button class="start">Start</button>
+
+		<script>
+const watch = document.querySelector('.watch')
+const start = document.querySelector('.start')
+
+start.addEventListener('click', () => {
+	let timer = 0
+
+	setInterval(() => {
+	  const sec = Math.floor(timer / 10)
+	  const mili = Math.floor(timer % 60)
+		timer++
+		console.log('t', timer)
+		watch.innerHTML = `${sec}:${mili}`
+	}, 100)
+})
+		</script>
+  </body>
+</html>
