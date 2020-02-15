@@ -1,0 +1,17 @@
+<div>
+	<button class="hello">Hello</button>
+	<button class="hello">Hola</button>
+	<button class="hello">Buna ziua</button>
+	<button class="hello">Aloha</button>
+	<h1 class="hello">Hello</h1>
+</div>
+<script>
+	const hellos = document.querySelector('.hello')
+const buttons = document.querySelector('button')
+
+buttons.forEach((button, i) => {
+	button.onclick = () => {
+		alert(`index: ${i}`)
+	}
+})
+</script>
