@@ -58,3 +58,10 @@ localStorage.getItem
 document.querySelectorAll
 - Returns an array of all the elements that match the query.
 
+
+Good engineers spend the majority of their time thinking,
+not coding. Whether you are working on these exercises,
+interviewing for a software engineering job, or working
+on projects, make sure you spend the first half of your alloted
+time thinking through the problem before actually starting to
+code.

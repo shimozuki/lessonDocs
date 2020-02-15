@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>two.html</title>
+  </head>
+  <body>
+    <h1>TODO LIST</h1>
+    <input class="type" type="text" />
+    <button class="add">Add</button>
+    <div class="todos"></div>
+
+    <script>
+    const render = () => {
+      const type = document.querySelector('.type');
+      const add = document.querySelector('.add');
+      const todos = document.querySelector('.todos');
+
+        add.addEventListener('click', () => {
+          const value = type.value;
+          if (value.trim() !== '') {
+            todos.innerHTML += `<h2 class="todo">${value}</h2>`;
+          }
+
+          const todoArr = todos.querySelectorAll('.todo');
+					console.log('todo arr', todoArr)
+
+          todoArr.forEach((e, i) => {
+            e.onclick = () => {
+
+							console.log('e was clicked', e)
+              todoArr.slice(i, 1);
+              render();
+            };
+          });
+        });
+      };
+
+      render();
+    </script>
+  </body>
+</html>
