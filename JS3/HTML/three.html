@@ -6,60 +6,73 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <title>three.html</title>
   </head>
   <body>
-    <h1>TODO LIST Part 2: Save Todos</h1>
-    <input class="type" type="text" />
-    <button class="add">Add</button>
-    <div class="container"></div>
+    <button class="prev">Previous</button>
+    <button class="next">Next</button>
+    <hr />
+    <div class="story"></div>
+    <hr />
+    <textarea class="essay"></textarea>
+    <button class="submit">Submit</button>
+    <div class="stories"></div>
 
     <script>
-      const type = document.querySelector('.type');
-      const add = document.querySelector('.add');
-      const container = document.querySelector('.container');
-      const storage = localStorage.getItem('list') || '[]';
-      const todos = JSON.parse(storage);
+      const prev = document.querySelector('.prev');
+      const next = document.querySelector('.next');
+      const story = document.querySelector('.story');
+      const essay = document.querySelector('.essay');
+      const submit = document.querySelector('.submit');
+      const stories = document.querySelector('.stories');
 
-      const setStorage = arr => {
-        const list = JSON.stringify(arr);
-        localStorage.setItem('list', list);
+	    const getStories = localStorage.getItem('allStories') || '[]' 
+      const allStories = JSON.parse(getStories) 
+      let index = 0;
+
+      story.innerText = allStories[index];
+
+      const render = () => {
+        stories.innerHTML = '';
+        allStories.forEach((e, i) => {
+					const div = document.createElement('div')
+					div.innerHTML += `<b>${e}</b><br/><br/>` 
+
+					div.addEventListener('click', () => {
+						div.remove()
+						allStories.splice(i, 1)
+						render()
+					})
+
+					stories.append(div)
+        });
       };
 
-      const remove = element => {
-        const list = todos.filter(item => {
-          return item !== element.innerText;
-        });
-        setStorage(list);
-        element.remove();
-      };
-
-      todos.forEach(e => {
-        const div = document.createElement('h3');
-        div.innerText = e;
-        container.append(div);
-        div.addEventListener('click', () => {
-          remove(div);
-        });
-      });
-
-      add.addEventListener('click', () => {
-        const value = type.value;
-
-        if (value.trim() !== '') {
-          const div = document.createElement('h3');
-          div.innerText = value;
-          todos.push(value);
-          setStorage(todos);
-
-          div.addEventListener('click', () => {
-            remove(div);
-          });
-
-          container.append(div);
+      prev.addEventListener('click', () => {
+        if (index === 0) {
+          return;
         }
+        index -= 1;
+        story.innerText = allStories[index];
       });
+
+      next.addEventListener('click', () => {
+        if (index === allStories.length - 1) {
+          return;
+        }
+        index += 1;
+        story.innerText = allStories[index];
+      });
+
+      submit.addEventListener('click', () => {
+        const value = essay.value;
+        allStories.push(value);
+			  const storage = JSON.stringify(allStories)
+			  localStorage.setItem('allStories', storage)
+        render();
+      });
+
+      render();
     </script>
   </body>
 </html>
