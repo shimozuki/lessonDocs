@@ -4,23 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>four.html</title>
+    <title>one.html</title>
   </head>
   <body>
-		<input class="type" type="type" />
 		<div class="container"></div>
 
 		<script>
-const type = document.querySelector('.type')
 const container = document.querySelector('.container')
 
-type.addEventListener('keyup', () => {
-	const value = type.value
-	if (value.trim() !== '') {
-	container.innerText += 'X'
-	} else {
-		container.innerText = ''
-	}
+document.addEventListener('click', (e) => {
+	console.log('Document has been clicked')
+	container.innerHTML += `<h1>X: ${e.clientX} Y: ${e.clientY}</h1>`
 })
 
 		</script>
