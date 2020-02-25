@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>five.html</title>
+  </head>
+  <body>
+
+		<input class="type" type="text" />
+		<canvas class="canvas" width="800" height="500"></canvas>
+
+		<script>
+const canvas = document.querySelector('.canvas')
+const type = document.querySelector('.type')
+
+const context = canvas.getContext('2d')
+context.fillStyle = "yellow"
+context.fillRect(0, 0, 800, 500)
+
+type.addEventListener('keyup', (e) => {
+	if (e.key === 'Enter') {
+		const value = type.value
+		context.font = "30px Comic Sans MS"
+		context.fillStyle = "black"
+		context.fillText(value, 10, 50)
+	}
+})
+
+		</script>
+  </body>
+</html>

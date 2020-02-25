@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>four.html</title>
+  </head>
+  <body>
+    <input class="type" type="text" />
+
+    <video class="video"></video>
+
+    <canvas class="canvas" width="800" height="500"></canvas>
+    <div class="imgContainer">
+		</div>
+
+    <script>
+      const type = document.querySelector('.type');
+      const canvas = document.querySelector('.canvas');
+      const videoElement = document.querySelector('.video');
+      const imgContainer = document.querySelector('.imgContainer');
+      const context = canvas.getContext('2d');
+      context.font = '30px Comic Sans MS';
+      context.fillStyle = 'black';
+
+      navigator.mediaDevices
+        .getUserMedia({
+          video: true,
+          audio: true,
+        })
+        .then(stream => {
+          videoElement.srcObject = stream;
+          videoElement.play();
+        });
+
+      type.addEventListener('keyup', e => {
+        if (e.key === 'Enter') {
+					context.fillText("", 10, 50)
+          imgContainer.innerHTML = '';
+          const value = type.value;
+          const img = document.createElement('img');
+          img.src = videoElement.srcObject;
+          context.fillText(value, 10, 50);
+          imgContainer.append(img);
+        }
+      });
+    </script>
+  </body>
+</html>
