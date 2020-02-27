@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <title>one.html</title>
+  </head>
+  <body>
+    <textarea class="type" type="text"></textarea>
+    <div class="content"></div>
+
+    <script>
+      const type = document.querySelector('.type');
+
+      type.addEventListener('keyup', (e) => {
+				const value = type.value
+
+        document.querySelector('.content').innerHTML = marked(
+					`# Marked in the browser\n\nRendered by ***marked*** 
+					${value}`,
+        );
+      });
+    </script>
+  </body>
+</html>
