@@ -7,6 +7,12 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<style>
+textarea {
+	height: 180px;
+	width: 200px;
+}
+		</style>
 
     <title>one.html</title>
   </head>
@@ -21,8 +27,7 @@
 				const value = type.value
 
         document.querySelector('.content').innerHTML = marked(
-					`# Marked in the browser\n\nRendered by ***marked*** 
-					${value}`,
+					`${value}`,
         );
       });
     </script>

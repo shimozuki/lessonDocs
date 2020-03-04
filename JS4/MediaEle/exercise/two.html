@@ -12,11 +12,7 @@
   <body>
     <input class="type" type="text" />
     <h1 class="timer">Input an MP3 URL and hit Enter</h1>
-    <audio
-      class="aud"
-      src="https://songz.c0d3.com/js4/examples/0415.mp3"
-      controls
-    ></audio>
+    <audio class="aud" src=""></audio>
 
     <script>
       const type = document.querySelector('.type');
@@ -26,15 +22,14 @@
       const solution = () => {
         setTimeout(() => {
           const curr = audio.currentTime;
-					const min = Math.floor(curr/60)
-					const sec = Math.floor(curr%60)
-					const mins = ((curr/60) < 10) ? `0${min}` : `${min}`;
-					const secs = ((curr%60) < 10) ? `0${sec}` : `${sec}`;
+          const min = Math.floor(curr / 60);
+          const sec = Math.floor(curr % 60);
+          const mins = curr / 60 < 10 ? `0${min}` : `${min}`;
+          const secs = curr % 60 < 10 ? `0${sec}` : `${sec}`;
           h1.innerHTML = `${mins}:${secs}`;
           solution();
         }, 1000);
       };
-
 
       type.addEventListener('keyup', e => {
         if (e.key === 'Enter') {

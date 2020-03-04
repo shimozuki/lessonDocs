@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <style>
+      img {
+        width: 450px;
+        height: 400px;
+        margin: 0 auto;
+				display: flex;
+      }
+    </style>
+
+    <title>Intersection</title>
+  </head>
+  <body>
+
+      <img class="dog1" src="dog1.jpeg" alt="dog1" />
+      <br />
+      <img class="dog2" src="dog2.jpeg" alt="dog2" />
+      <br />
+      <img class="dog3" src="dog3.jpeg" alt="dog3" />
+      <br />
+      <img class="dog4" src="dog4.jpeg" alt="dog4" />
+      <br />
+      <img class="dog5" src="dog5.jpeg" alt="dog5" />
+
+    <script>
+      let options = {
+        rootMargin: '0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      };
+
+      let callback = (entries, observer) => {
+        entries.forEach(entry => {
+          console.log('e', entry.intersectionRatio);
+					console.log('intersecting:', entry.isIntersecting)
+        });
+      };
+
+      let observer = new IntersectionObserver(callback, options);
+
+      let myDog1 = document.querySelector('.dog1');
+      let myDog2 = document.querySelector('.dog2');
+      let myDog3 = document.querySelector('.dog3');
+      let myDog4 = document.querySelector('.dog4');
+      let myDog5 = document.querySelector('.dog5');
+
+      observer.observe(myDog1);
+      observer.observe(myDog2);
+      observer.observe(myDog3);
+      observer.observe(myDog4);
+      observer.observe(myDog5);
+    </script>
+  </body>
+</html>

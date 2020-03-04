@@ -21,15 +21,10 @@
       const start = document.querySelector('.start')
 
       const solution = (num) => {
-      	if (num === -1) 	{
+      	if (num <= -1) 	{
       		message.innerText = 0;
       		return;
-      	}
-
-      	if (num < -1) {
-					message.innerText = 0; 
-					return;
-				}
+      	} 
 
       	setTimeout(() => {
       		message.innerText = num

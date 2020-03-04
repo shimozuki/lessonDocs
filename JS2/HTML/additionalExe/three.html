@@ -14,7 +14,7 @@
     <h1 class="upper">Type a letter and then, click start</h1>
     <div class="container">
       <input class="submitType" type="text" />
-      <button class="submit">Submit</button>
+      <button class="start">Start</button>
     </div>
     <h1 class="lower"></h1>
 
@@ -25,10 +25,10 @@
       let filterValue;
 
       const render = () => {
-        const submit = document.querySelector('.submit');
+        const start = document.querySelector('.start');
         const submitType = document.querySelector('.submitType');
 
-        submit.addEventListener('click', () => {
+        start.addEventListener('click', () => {
           const sValue = submitType.value;
           if (sValue.trim() !== '') {
             upper.innerText = `Filtering out: ${sValue}`;
@@ -65,7 +65,7 @@
 
 						container.innerHTML = `
 						<input class="submitType" type="text" />
-						<button class="submit">Submit</button>
+						<button class="start">Start</button>
 						`
 						render()
 					})

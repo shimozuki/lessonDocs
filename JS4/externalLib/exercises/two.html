@@ -8,6 +8,12 @@
     />
 
     <script src="https://code.responsivevoice.org/responsivevoice.js?key=EkvRMLec"></script>
+    <style>
+      textarea {
+        height: 200px;
+        width: 250px;
+      }
+    </style>
 
     <title>two.html</title>
   </head>
@@ -23,10 +29,10 @@
       voicelist.forEach(e => {
         const option = document.createElement('option');
         option.innerText = e.name;
-				
-				option.addEventListener('click', () => {
-					responsiveVoice.setDefaultVoice(e.name)
-				})
+
+        option.addEventListener('click', () => {
+          responsiveVoice.setDefaultVoice(e.name);
+        });
 
         voice.append(option);
       });

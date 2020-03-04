@@ -27,20 +27,15 @@
         if (e.key === 'Enter') {
           const value = type.value;
           const letters = value.split('');
-          console.log('letters', letters);
 
-          if (index === colors.length - 1) {
-            index = 0;
-          } else {
-            index += 1;
-          }
+					(index === colors.length - 1) ? index = 0 : index += 1
 
           context.fillStyle = colors[index];
           context.fillRect(0, 0, 800, 500);
           context.font = '30px Comic Sans MS';
           context.fillStyle = 'black';
 
-          const result = letters.forEach(e => {
+         letters.forEach(e => {
             const xCoord = Math.floor(Math.random() * 500);
             const yCoord = Math.floor(Math.random() * 500);
 
