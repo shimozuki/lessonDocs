@@ -6,32 +6,27 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+		<link rel="stylesheet" type="text/css" href="one.css">
 
-    <style>
-      .last {
-        position: relative;
-				bottom: 50px;
-        height: 450px;
-				width: 550px;
-      }
-
-      .container {
-				width: 100%;
-				bottom: 10px;
-				height: 450px;
-				margin: 0 auto;
-				text-align: center;
-				position: relative;
-        background: darkblue;
-      }
-    </style>
     <title>one.html</title>
   </head>
   <body>
-    <div class="container">
-      <video class="last" width="100%" height="420px" controls>
+    <div class="upperContainer">
+      <video class="last" controls>
         <source src="../../lastofus.mp4" type="video/mp4" />
       </video>
     </div>
+
+    <div class="lowerContainer">
+      <h3>Add Caption</h3>
+			<input class="captionInput" placeholder="Caption" type="text">
+			<input class="start" placeholder="Start(ms)" type="number">
+			<input class="end" placeholder="End(ms)" type="number">
+			<br/>
+			<button class="save">Save</button>
+			<hr/>
+			<div class="currentCaptions"></div>
+    </div>
+		<script src="one.js"></script>
   </body>
 </html>

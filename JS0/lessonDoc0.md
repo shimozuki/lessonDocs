@@ -1,4 +1,5 @@
 Why Learn JavaScript?
+- To get a good career.
 
 Javascript is the only language that lets you do every aspect of technology.
 
@@ -8,7 +9,6 @@ This lesson will cover the fundamental building blocks of coding:
 - primitive data types
 - truthy and falsey properties
 - functions
-
 
 VARIABLES
 The act of storing information
