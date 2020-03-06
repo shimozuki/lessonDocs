@@ -1,7 +1,11 @@
-const total = 6
-let result = ""
+const total = 6;
+
+let result = '';
+
 if (total < 5) {
-  result = "Fail"
+  result = 'Fail';
 } else {
-  result = "Pass"
+  result = 'Pass';
 }
+
+console.log(result)

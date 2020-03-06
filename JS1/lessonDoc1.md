@@ -74,3 +74,52 @@ Whenever you click on an element, the browser will try to run the element's oncl
 
 Therefore, by assigning a function to an element's onclick event property, we can do something whenever the element is clicked.
 
+
+
+Steps:
+1. 3 Examples
+2. Function shape
+3. Explanation
+4. Explanation
+5. Test
+
+
+CLOSURE 
+Closure is a function inside of another function
+
+DEFAULT PARAMS
+When you call a function that passes in paramters 
+without parameters.
+
+To avoid that you can define default values to your
+paramters.
+
+
+RECURSION
+A function that calls itself.
+
+A recursion functions needs
+1. Paramters: 
+2. Base case:
+3. Recursive case:
+
+STRINGS AND LETTERS
+1. Paramters
+2. Base case
+3. Recursive case
+
+
+ASYNC 
+If you are baking pizza and put the pizza into the oven,
+do you wait until the oven is done before doing something else?
+
+Probably not.
+
+You will probably do other things and come back to it after
+the oven finishes cooking the pizza.
+
+Usually the oven finishes cooking the pizza and lets you know
+when it's done (like a beeop)
+
+Javascript works the same way.
+
