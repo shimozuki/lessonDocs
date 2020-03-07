@@ -27,4 +27,4 @@ let nectarines = [1,2,3]
 nectarines = nectarines.push(6)
 
 console.log('nect', nectarines)
-console.log([1,2,3,6])
+console.log(4)

@@ -95,3 +95,67 @@ VARIABLE ASSIGNMENTS
 Software engineers introduct bugs into their codebase because
 they did not pay attention to the nature of non-primitive data
 types.
+
+
+ARRAY FUNCTIONS: ADD AND REMOVE
+
+
+Push:
+function that takes an argument and adds it to the end of the 
+array. Returns the new array length.
+
+Pop:
+function that removes the last element of the array and returns
+the removed element.
+
+Shift:
+Removes the first element of the array and returns the 
+removed element.
+
+Unshift:
+Takes an argrument and adds it to the beginning of the array,
+returns the new array length.
+
+Splice:
+Splice is a function that takes an unlimited number of arguments.
+
+When spice runs, the 2nd parameter number of elements are 
+removed starting at the 1st paramter index.
+
+Then, the rest of the paramters are added in at the same location.
+If there are no more arguments passed in, nothing is added.
+
+
+ARRAY FUNCTIONS: HELPERS
+
+Map:
+takes in a function, applies the function to every element in the
+array, and returns a new array of the same length.
+
+forEach:
+runs its input function on each elements and returns undefined
+rather than a new array.
+
+Filter:
+runs a function on each element in the original array to decide
+whether to include it in the returned array.
+
+Find:
+takes in an input function, and returns the first element which
+the function returns a truthy value for.
+
+Reduce:
+takes in a function and a starting value, reduces the array 
+into the starting value.
+
+4 paramters:
+- the return value from the previous input funciton call
+- current element
+- current index
+- the array itself
+
+
+PROTOTYPE INHERITANCE
+
+
+ASYNC
