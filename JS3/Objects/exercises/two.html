@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>two.html</title>
+  </head>
+  <body>
+    <h1>Friend's List</h1>
+    Name: <input class="name" type="text" /> Age:
+    <input class="age" type="text" />
+    <button class="add">Add</button>
+    <div class="container"></div>
+
+    <script>
+      const name = document.querySelector('.name');
+      const age = document.querySelector('.age');
+      const add = document.querySelector('.add');
+      const container = document.querySelector('.container');
+      const listStorage = localStorage.getItem('listObjects') || '[]';
+      const listObjects = JSON.parse(listStorage);
+
+      const render = () => {
+        container.innerHTML = '';
+        console.log(listObjects, 'obj list');
+        listObjects.forEach(e => {
+          container.innerHTML += `<h1>Name: ${e.name} <br/> Age: ${e.age}</h1>`;
+        });
+      };
+
+      const setStorage = () => {
+        const result = JSON.stringify(listObjects);
+        localStorage.setItem('listObjects', result);
+      };
+
+      add.addEventListener('click', () => {
+        const nameVal = name.value;
+        const ageVal = age.value;
+
+        listObjects.push({name: nameVal, age: ageVal});
+        setStorage();
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>

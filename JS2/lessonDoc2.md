@@ -156,6 +156,7 @@ into the starting value.
 
 
 PROTOTYPE INHERITANCE
+- Functions inheret protoypes
 
 
 ASYNC
