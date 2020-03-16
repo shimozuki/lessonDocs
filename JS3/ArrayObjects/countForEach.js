@@ -9,6 +9,6 @@ villians.countForEach(()=>{})
 villians.countForEach(()=>{})
 villians.countForEach(()=>{})
 
-const moreVillians = ["Two-Face", "Bane"]
-moreVillains.countForEach(()=>{}) + villians.countForEach(()=>{})
+const moreV = ["Two-Face", "Bane"]
+moreV.countForEach(()=>{}) + villians.countForEach(()=>{})
 
