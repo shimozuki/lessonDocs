@@ -1,8 +1,11 @@
 const a = ['Edna', 'Optimus', 'Minion'];
 
-Array.prototype.setMaxSize = function(val, i=0) {
-  this.arr = []
-
+Array.prototype.setMaxSize = function(val) {
+  const push = () => {
+  if (this.length >= val) {
+    return this.length
+  } 
+  }
 }
 
 console.log(a.setMaxSize(4));
