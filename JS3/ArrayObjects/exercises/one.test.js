@@ -1,6 +1,6 @@
 const fn = require('./one.js')
 
-describe('getNext function', () => {
+describe('getNext prototype', () => {
   it('should iterate through 3 elements', () => {
     const arr = ['Edna', 'Optimus', 'Minion'];
     let result = arr.getNext();
@@ -26,4 +26,11 @@ describe('getNext function', () => {
     expect(arr.getNext()).toEqual('Ironman');
     expect(arr.getNext()).toEqual('Ironman');
   });
+  it(`shouldn't iterate`, () => {
+    const arr = []
+    expect(arr.getNext()).toEqual()
+    expect(arr.getNext()).toEqual()
+    expect(arr.getNext()).toEqual()
+    expect(arr.getNext()).toEqual()
+  })
 });
