@@ -1,0 +1,17 @@
+<video
+  class="videoElement"
+  src="https://songz.c0d3.com/js4/exercises/pubDomainRemix.mp4"
+  controls
+	style="height:400px;width:400px;"
+></video>
+
+<script>
+  const video = document.querySelector('.videoElement');
+
+  setTimeout(() => {
+    video.addEventListener('timeupdate', evt => {
+      console.log('The current attribute has been updated: ', evt);
+      console.log(video.currentTime * 1000, 'current time');
+    });
+  }, 1000);
+</script>
