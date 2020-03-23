@@ -9,9 +9,4 @@ const result = myArr.filter((e) => {
 
 const sum = myFun() + newObj 
 
-console.log('func', myFun)
-console.log('obj', newObj)
-console.log('sum', sum)
-
 console.log('result', result)
-console.log('arrogant, naive, strong')

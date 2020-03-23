@@ -14,7 +14,7 @@
     "brain.js": "^2.0.0-alpha.12",
     "jest": "^24.9.0",
     "node-fetch": "^2.6.0",
-    "request": "^2.88.0",
+    "request": "^2.88.2",
     "xlsx": "^0.15.4"
   }
 }
