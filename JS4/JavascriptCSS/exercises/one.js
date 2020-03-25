@@ -1,29 +1,65 @@
-const upperContainer = document.querySelector('.upperContainer');
-const captionInput = document.querySelector('.captionInput');
-const start = document.querySelector('.start');
+const videoElement = document.querySelector('.vPlayer')
+const videoCaption = document.querySelector('.videoCaption')
 
-const last = document.querySelector('.last');
-const lowerContainer = document.querySelector('.captionInput');
-const save = document.querySelector('.save');
+videoElement.addEventListener('timeupdate', (evt) => {
+  const curMS = videoElement.currentTime * 1000
+  const captionsAfterCurrent = captions.filter((e) => {
+    return e.start <= curMS
+  })
 
-const end = document.querySelector('.end');
-const currentCaption = document.querySelector('.currentCaptions');
-const canvas = document.querySelector('.canvas');
+  const validCaptions = captionsAfterCurrent.filter((e) => {
+    return e.end > curMS
+  })
 
-const context = canvas.getContext('2d');
+  let captionText = ''
+  if (validCaptions.length) {
+    captionText = validCaptions[0].txt
+  }
 
-context.font = '30px Comic Sans MS';
-context.fillStyle = 'black';
-context.fillText("Hello World", 10, 50)
+  videoCaption.innerText = captionText
+})
 
-const delayPicture = () => {
-  setTimeout(() => {
-    console.log(last, 'last')
-    canvas.width = last.videoWidth 
-    canvas.height = last.videoHeight
-    context.fillText('Hello WOrld', 10, 50)
-    console.log(canvas, 'canvas')
-  }, 1000)
+let captions = [{
+  txt: "A beautiful Typewriter",
+  start: 0,
+  end: 3000
+}, {
+  txt: "On to a big piece of paper",
+  start: 3000,
+  end: 7000
+}, {
+  txt: "Transitioning to Video!",
+  start: 7000,
+  end: 8000
+}, {
+  txt: "Video of horse, then magazine",
+  start: 8000,
+  end: 1300
+}]
+
+const captionList = document.querySelector('.captionList')
+
+const render = () => {
+  captionList.innerHTML = captions.reduce((acc, e) => {
+    return acc + `
+    <div class="caption">
+    <h5>${e.txt}</h5>
+    <p class="control startAt">${e.start}</p>
+    <p class="control endAt">${e.end}</p>
+    </div>
+    `
+  }, '')
+
+  const captionElementList = captionList.querySelectorAll('.caption')
+  captionElementList.forEach((e, i) => {
+    e.addEventListener('click', () => {
+      if (confirm(`Remove caption: ${captions[i].txt}?`)) {
+        captions.splice(i, 1)
+        render()
+      }
+    })
+  })
 }
 
-delayPicture()
+render()
+

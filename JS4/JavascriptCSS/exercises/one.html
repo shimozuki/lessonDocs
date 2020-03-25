@@ -11,23 +11,27 @@
     <title>one.html</title>
   </head>
   <body>
-    <div class="upperContainer">
-      <video class="last" controls>
-        <source src="../../lastofus.mp4" type="video/mp4" />
-      </video>
-    </div>
 
-    <canvas class="canvas"></canvas>
-      <div class="lowerContainer">
-        <h3>Add Caption</h3>
-        <input class="captionInput" placeholder="Caption" type="text" />
-        <input class="start" placeholder="Start(ms)" type="number" />
-        <input class="end" placeholder="End(ms)" type="number" />
-        <br />
-        <button class="save">Save</button>
-        <hr />
-        <div class="currentCaptions"></div>
-      </div>
+		<div class="videoContainer">
+			<video class="vPlayer" src="./../../lastOfUs.mp4" controls></video>
+			<div class="videoCaption"></div>
+		</div>
+
+		<div class="inputContainer">
+			<h3>Add a Caption</h3>
+			<input class="captionInput" type="text" placeholder="Caption">
+			<input class="startINput" type="text" placeholder="Start (ms)">
+			<input class="endInput" type="text" placeholder="End (ms)">
+			<button class="submit">Save</button>
+			<hr>
+			<div class="captionList">
+				<div class="caption">
+					Starting...
+				</div>
+			</div>
+		</div>
+
+
     <script src="one.js"></script>
   </body>
 </html>
