@@ -1,10 +1,18 @@
+const fs = require('fs');
 const listFiles = () => {
-  const fs = require('fs')
-  fs.readdir('./', (err, files) => {
-    const str = files.reduce((acc, f) => {
-      return `${acc}<h1>${f}</h1>`
-    })
-    fs.writeFile('./files.html', str, () => {})
-  }, '')
-}
+  fs.readdir(
+    './',
+    (err, files) => {
+      if (err) throw err;
+      const str = files.reduce((acc, f) => {
+        return `${acc}<h1>${f}</h1>`;
+        }, '');
 
+        fs.writeFile('./files.html', str, () => {
+          if (err) throw err;
+          console.log('File has been written!');
+      });
+    })
+};
+
+listFiles()
