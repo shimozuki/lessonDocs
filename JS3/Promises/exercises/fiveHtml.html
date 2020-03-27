@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>fiveHtml.html</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+      const container = document.querySelector('.container');
+
+      fetch('https://c0d3.com/api/lessons')
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
+					data.forEach((e) => {
+						const div = document.createElement('div')
+						div.innerHTML += `<h1>${e.title}</h1>`
+
+						div.addEventListener('click', () => {
+							alert(`${e.description}`)
+						})
+
+						container.append(div)
+					})
+        });
+    </script>
+  </body>
+</html>

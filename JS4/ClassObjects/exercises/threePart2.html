@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <style>
+      .square {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        border: 1px solid black;
+      }
+
+      .row {
+        display: flex;
+      }
+    </style>
+    <title>three.html</title>
+  </head>
+  <body>
+    <h1>Box Generator</h1>
+    <h5>Enter a number less than 900</h5>
+    <input class="num" type="number" />
+    <div class="container"></div>
+
+    <script>
+      const container = document.querySelector('.container');
+      const num = document.querySelector('.num');
+
+      const generateRows = (row, rowDiv, j, i = 0) => {
+        if (i === row) return;
+        const div = document.createElement('div');
+        div.classList.add('square');
+				div.addEventListener('click', (e) => {
+					alert(`row: ${i+1} col: ${j+1}`)
+				})
+        rowDiv.append(div);
+        return generateRows(row, rowDiv, j, i + 1);
+      };
+
+      const grid = (rows, cols, j = 0) => {
+        if (j === cols) return;
+        const div = document.createElement('div');
+        div.classList.add('row');
+        generateRows(rows, div, j);
+        container.append(div);
+        return grid(rows, cols, j + 1);
+      };
+
+      num.addEventListener('keyup', e => {
+        if (+num.value < 900) {
+          container.innerHTML = '';
+          grid(+num.value, +num.value);
+        }
+      });
+    </script>
+  </body>
+</html>

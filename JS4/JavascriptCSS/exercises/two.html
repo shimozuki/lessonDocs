@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <style>
+      .container {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+      }
+
+      .large {
+        z-index: -10;
+      }
+
+      .mouse {
+        z-index: 10;
+        position: absolute;
+      }
+    </style>
+
+    <title>two.html</title>
+  </head>
+  <body>
+    <img
+      class="small"
+      src="https://songz.c0d3.com/js4/exercises/300x225.jpeg"
+      alt="small"
+    />
+    <div class="container">
+      <img
+        class="mouse"
+        src="https://songz.c0d3.com/js4/exercises/arrow.png"
+        alt="Mouse"
+      />
+      <img
+        class="large"
+        src="https://songz.c0d3.com/js4/exercises/800x600.jpeg"
+        alt="large"
+      />
+    </div>
+    <script>
+      const small = document.querySelector('.small');
+      const mouse = document.querySelector('.mouse');
+
+      small.addEventListener('mousemove', evt => {
+        const xCoord = evt.clientX * (800/300);
+        const yCoord = evt.clientY * (800/300);
+
+          mouse.style.top = `${yCoord}px`;
+          mouse.style.left = `${xCoord}px`;
+      });
+    </script>
+  </body>
+</html>

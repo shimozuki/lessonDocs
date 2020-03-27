@@ -525,3 +525,21 @@ complex UI, and it allows reuse of existing code without
 copying and pasting.
 
 
+--- Class Objects ---
+
+As out programs get more complex, we'll need a way of making
+templates that let us quickly create multiple, similar objects.
+
+These are called classes.
+
+Just like how you follow a blueprint to build a house,
+you use a class to create an object.
+
+Using classes helps you organize your code better.
+
+In web design, you should always try to use classes when you
+have to create multiple elements with the same functionalities.
+
+When build a complex HTML page your first instinct should be to 
+think about what classes you should create to simplify the problem
+

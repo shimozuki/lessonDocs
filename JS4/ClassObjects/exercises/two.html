@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <style>
+      .screen {
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        z-index: -1;
+        position: fixed;
+        background: lightblue;
+      }
+      .circle {
+        width: 75px;
+        height: 50px;
+        background: aqua;
+        border-radius: 50%;
+        position: absolute;
+        text-align: center;
+        font-size: 30px;
+        padding-top: 25px;
+        border: 1px solid black;
+      }
+    </style>
+
+    <title>two.html</title>
+  </head>
+
+  <body>
+    <div class="screen"></div>
+    <script>
+      const screen = document.querySelector('.screen');
+
+      function Circle(x, y) {
+        let num = 10;
+				y = y-50
+				x = x-50
+        const div = document.createElement('div');
+
+        div.classList.add('circle');
+        div.style.top = `${y}px`;
+        div.style.left = `${x}px`;
+        div.innerText = num;
+				screen.append(div)
+
+        div.addEventListener('click', e => {
+          if (num === 0) {
+            div.remove();
+          }
+          e.stopPropagation();
+          div.innerText = num;
+          num -= 1;
+        });
+      }
+
+      screen.addEventListener('click', e => {
+				new Circle(e.clientX, e.clientY)
+      });
+    </script>
+  </body>
+</html>
