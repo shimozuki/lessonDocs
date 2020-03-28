@@ -1,26 +1,12 @@
-<div class="container">
-	<button class="submit">Submit</button>
-</div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<script>
-	const container = document.querySelector('.container')
-
-const setUp = () => {
-  const submit = document.querySelector('.submit')
-
-  submit.addEventListener('click', () => {
-		container.innerHTML = `
-		<input />
-		<button class="cancel">cancel</button>
-		`
-
-		const cancel = container.querySelector('.cancel')
-		cancel.addEventListener('click', () => {
-			container.innerHTML = '<button class="submit">Submit</button>'
-			setUp()
-		})
-	})
-}
-
-setUp()
-</script>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+  </body>
+</html>
