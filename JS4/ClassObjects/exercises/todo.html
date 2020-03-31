@@ -7,37 +7,37 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>todo2.html</title>
   </head>
   <body>
-    <h1>TODO LIST Part 2: Save Todos</h1>
+    <h1>TODO LIST</h1>
     <input class="type" type="text" />
     <button class="add">Add</button>
     <div class="container"></div>
-
     <script>
       const type = document.querySelector('.type');
       const add = document.querySelector('.add');
       const container = document.querySelector('.container');
-      const storage = localStorage.getItem('list') || '[]';
-      const todos = JSON.parse(storage);
+      const storageStr = localStorage.getItem('todo') || '[]';
+      const todos = JSON.parse(storageStr);
 
       const setStorage = arr => {
         const list = JSON.stringify(arr);
-        localStorage.setItem('list', list);
+        localStorage.setItem('todo', list);
       };
 
       const remove = element => {
-        console.log(element.innerText, 'text');
         const list = todos.filter(item => {
+          console.log(element.innerText, 'ele');
           return item !== element.innerText;
         });
+
         setStorage(list);
         element.remove();
       };
 
       todos.forEach(e => {
-        const div = document.createElement('h3');
+        const div = document.createElement('div');
+        div.classList.add('todo');
         div.innerText = e;
         container.append(div);
         div.addEventListener('click', () => {
@@ -46,20 +46,16 @@
       });
 
       add.addEventListener('click', () => {
-        const value = type.value;
+        const div = document.createElement('div');
+        div.innerText = type.value;
+        todos.push(type.value);
+        setStorage(todos);
 
-        if (value.trim() !== '') {
-          const div = document.createElement('h3');
-          div.innerText = value;
-          todos.push(value);
-          setStorage(todos);
+        div.addEventListener('click', () => {
+          remove(div);
+        });
 
-          div.addEventListener('click', () => {
-            remove(div);
-          });
-
-          container.append(div);
-        }
+        container.append(div);
       });
     </script>
   </body>

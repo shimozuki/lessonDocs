@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://songz.c0d3.com/js4/exercises/war.css"
+    />
+    <style>
+      .container {
+        position: fixed;
+        z-index: -1;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+        border: 1px solid black;
+      }
+      .square {
+        position: absolute;
+      }
+    </style>
+
+    <title>five.html</title>
+  </head>
+  <body>
+    <h1>Click to create character</h1>
+    <div class="container"></div>
+
+    <script>
+      const container = document.querySelector('.container');
+      let index = 0;
+
+      function Character(x, y, dir, war) {
+        const div = document.createElement('div');
+        div.style.top = `${y}px`;
+        div.style.left = `${x}px`;
+        console.log(x, y);
+
+        if (war) {
+          div.classList.add('square');
+          div.classList.add('character');
+          div.classList.add(`${dir}`);
+          div.classList.add(`${war}`);
+          container.append(div);
+        } else {
+          div.classList.add('square');
+          div.classList.add('character');
+          div.classList.add(`${dir}`);
+          container.append(div);
+        }
+      }
+
+      container.addEventListener('click', e => {
+        if (index === 0) {
+          index += 1;
+          new Character(e.clientX, e.clientY, 'down', 'warrior');
+        } else {
+          new Character(e.clientX, e.clientY, 'down');
+        }
+      });
+    </script>
+  </body>
+</html>

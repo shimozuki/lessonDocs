@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style>
+      h1 {
+        margin: 10px;
+      }
+
+      input {
+        width: 90%;
+      }
+
+      .right {
+        float: right;
+      }
+
+      .left {
+        float: left;
+      }
+
+      .container {
+        width: 400px;
+        margin: 0 auto;
+				text-align: center;
+        border: 1px solid blue;
+      }
+
+      .todo {
+        height: 30px;
+        margin-top: 10px;
+        background: lightgrey;
+        position: inline-block;
+        padding: 10px 10px 1px 10px;
+      }
+    </style>
+
+    <title>six.html</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="left">TODO LIST EXAMPLE</h1>
+      <input class="type" type="text" />
+      <div class="lowerContainer"></div>
+    </div>
+
+    <script>
+      const type = document.querySelector('.type');
+      const add = document.querySelector('.add');
+      const container = document.querySelector('.container');
+      const storageStr = localStorage.getItem('todo') || '[]';
+      const todos = JSON.parse(storageStr);
+
+      const setStorage = arr => {
+        const list = JSON.stringify(arr);
+        localStorage.setItem('todo', list);
+      };
+
+      const remove = element => {
+        const list = todos.filter(item => {
+					const left = element.querySelector('.left')
+          return item !== left.innerText;
+        });
+
+        setStorage(list);
+        element.remove();
+      };
+
+      todos.forEach((e, i) => {
+        const div = document.createElement('div');
+        div.innerHTML = `
+				<div class="todo">
+				<div class="left">${e}</div>
+				<button class="delete${i} right">Delete</button>
+        </div>
+				`;
+
+				const deleteButton = div.querySelector(`.delete${i}`)
+
+        deleteButton.addEventListener('click', () => {
+          remove(div);
+        });
+
+        container.append(div);
+      });
+
+      type.addEventListener('keyup', (e) => {
+				if (e.key === 'Enter') { 
+
+        const div = document.createElement('div');
+        div.innerHTML = `
+				<div class="todo">
+				<div class="left">${type.value}</div>
+        <button class="delete right">Delete</button>
+        </div>
+				`
+        todos.push(type.value);
+        setStorage(todos);
+        container.append(div);
+				}
+      });
+    </script>
+  </body>
+</html>

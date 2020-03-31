@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://songz.c0d3.com/js4/exercises/war.css"
+    />
+    <style>
+      .row {
+        width: 100%;
+        display: flex;
+        position: relative;
+        justify-content: space-evenly;
+      }
+      .square {
+        position: relative;
+        padding-bottom: 0px;
+      }
+      p {
+        color: maroon;
+      }
+    </style>
+
+    <title>fourBrute.html</title>
+  </head>
+  <body>
+    <h1>Class Name</h1>
+    <h3>Warrior</h3>
+    <div class="row">
+      <div class="square character warrior up warriors"></div>
+      <div class="square character warrior down warriors"></div>
+      <div class="square character warrior left warriors"></div>
+      <div class="square character warrior right warriors"></div>
+    </div>
+    <div class="row">
+      <p class="lower">
+        .character.warrior.up
+      </p>
+      <p class="lower">
+        .character.warrior.down
+      </p>
+      <p class="lower">
+        .character.warrior.left
+      </p>
+      <p class="lower">
+        .character.warrior.right
+      </p>
+    </div>
+    <h3>Pesant</h3>
+    <div class="row">
+      <div class="square character up"></div>
+      <div class="square character down"></div>
+      <div class="square character left"></div>
+      <div class="square character right"></div>
+    </div>
+    <div class="row">
+      <p>
+        .character.up
+      </p>
+      <p>
+        .character.down
+      </p>
+      <p>
+        .character.left
+      </p>
+      <p>
+        .character.right
+      </p>
+    </div>
+    <script>
+      const solution = () => {
+        const warrior = document.querySelectorAll('.warrior');
+        const lower = document.querySelectorAll('.lower');
+
+        setTimeout(() => {
+          warrior.forEach(e => {
+            if (e.classList.contains('attack')) {
+              e.classList.remove('attack');
+            } else {
+              e.classList.add('attack');
+            }
+          });
+
+          lower.forEach(e => {
+            if (e.classList.contains('attack')) {
+              const result = e.innerText.split('.');
+              result.pop();
+              e.innerText = result.join('.');
+              e.classList.remove('attack');
+            } else {
+              e.innerText += '.attack';
+              e.classList.add('attack');
+            }
+          });
+
+          solution();
+        }, 2000);
+      };
+      solution();
+    </script>
+  </body>
+</html>
