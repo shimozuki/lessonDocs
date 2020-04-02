@@ -543,3 +543,24 @@ have to create multiple elements with the same functionalities.
 When build a complex HTML page your first instinct should be to 
 think about what classes you should create to simplify the problem
 
+
+-- Promises --
+
+When a function (like fetch) returns a promise, 
+it is actually returning a new promise object created from a
+promise class: new Promise(...)
+
+When you write functions, you can return a promise object too!
+
+Promise takes in one argument, a function: new Promise(fn).
+
+The function should take in two function paramters, 
+called resolve and reject respectively.
+
+Running resolve will run the then property of the promise object.
+
+When your input function runs the resolve function, the 
+arguments you pass into resolve will be immediately passed
+into the then callback in the promise chain.
+
+
