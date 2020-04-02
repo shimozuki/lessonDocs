@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style>
+      .container {
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      .video,
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 640px;
+        height: 360px;
+      }
+      .box {
+        position: absolute;
+        border: 1px rgba(0, 255, 0, 1) solid;
+        color: rgba(0, 255, 0, 1);
+        background: rgba(150, 255, 150, 0.3);
+      }
+      .play {
+        margin-top: 380px;
+      }
+    </style>
+
+    <title>two.html</title>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <video
+        class="cars"
+        src="https://songz.c0d3.com/js4/exercises/cars.mp4"
+      ></video>
+      <div class="overlay"></div>
+      <button class="play">Play</button>
+    </div>
+
+    <script>
+      const videoElement = document.querySelector('.cars');
+      const play = document.querySelector('.play');
+      const overlay = document.querySelector('.overlay');
+
+      play.addEventListener('click', () => {
+        videoElement.play();
+      });
+
+      const draw = (arr = []) => {
+        overlay.innerHTML = '';
+        arr.forEach(obj => {
+          const div = document.createElement('div');
+          div.classList.add('box');
+          div.innerText = obj.label;
+          div.style.top = `${obj.y * 360}px`;
+          div.style.left = `${obj.x * 640}px`;
+
+          overlay.append(div);
+        });
+      };
+
+      const yolo = ml5.YOLO(videoElement, () => {
+        detect();
+      });
+
+      const detect = () => {
+        setTimeout(() => {
+          yolo.detect(videoElement, (err, results) => {
+            console.log(results);
+          });
+        }, 200);
+      };
+    </script>
+  </body>
+</html>
