@@ -1,0 +1,16 @@
+<input class="type" type="text" />
+<div class="container"></div>
+
+<script>
+  const container = document.querySelector('.container');
+  const type = document.querySelector('.type');
+
+  type.addEventListener('keyup', () => {
+    const value = type.value;
+    if (value) {
+      container.innerText += 'X';
+    } else {
+      container.innerText = '';
+    }
+  });
+</script>
