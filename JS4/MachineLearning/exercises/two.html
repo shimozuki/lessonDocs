@@ -6,15 +6,67 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <style>
-    </style>
+    <style></style>
 
     <title>two.html</title>
     <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
   </head>
   <body>
+    <h3>The Oracle</h3>
+    <input class="question" size="2" />
+    <p class="results">battle with enemies</p>
+    <p class="status">Loading model...</p>
+    <hr />
 
     <script>
+      const question = document.querySelector('.question');
+      const author = document.querySelector('.author');
+      const status = document.querySelector('.status');
+      const generateButton = document.querySelector('.generate');
+      const results = document.querySelector('.results');
+
+      // When the model is loaded
+      const modelLoaded = () => {
+        status.innerText = 'Ready!';
+        charRNN
+          .generate({
+            seed: 'battle with enemies',
+            length: 0,
+          })
+          .then(prediction => {
+            console.log(prediction.sample);
+            charRNN.predict(1).then(next);
+          });
+      };
+
+      let val = 'battle with enemies';
+      const next = (data, i = 0) => {
+        val = val + data.sample;
+        console.log(data.sample);
+        results.innerText = val;
+        charRNN
+          .feed(data.sample)
+          .then(() => {
+            return charRNN.predict(1);
+          })
+          .then(res => {
+            if (i > 2000) {
+              return;
+            }
+            return next(res, i + 1);
+          });
+      };
+
+      const charRNN = ml5.charRNN(
+        'https://songz.c0d3.com/js4/models/lstm/shakespeare',
+        modelLoaded,
+      );
+
+      question.addEventListener('keyup', () => {
+        const value = question.value;
+        results.innerText = value;
+        if (value.length < 5) return;
+      });
     </script>
   </body>
 </html>

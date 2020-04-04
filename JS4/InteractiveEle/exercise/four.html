@@ -1,28 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <title>four.html</title>
   </head>
   <body>
-		<input class="type" type="type" />
-		<div class="container"></div>
+    <input class="type" type="type" />
+    <div class="typeDisplay"></div>
+    <div class="display"></div>
 
-		<script>
-const type = document.querySelector('.type')
-const container = document.querySelector('.container')
+    <script>
+      const getXStr = (total, result = '') => {
+        if (total <= 0) {
+          return result;
+        }
+        return getXStr(total - 1, result + 'X');
+      };
 
-type.addEventListener('keyup', () => {
-	const value = type.value
-	if (value.trim() !== '') {
-	container.innerText += 'X'
-	} else {
-		container.innerText = ''
-	}
-})
+      const displayAllKeys = () => {
+        const allKeyElements = display.querySelector('.message');
+        allKeyElements.forEach((h1, h1Index) => {
+          h1.innerText = logs[h1Index].fakeText;
+        });
+      };
 
-		</script>
+      const typeDisplay = document.querySelector('.typeDisplay');
+      const typeInput = document.querySelector('.type');
+      const display = document.querySelector('.display');
+
+      const logs = [];
+      typeInput.addEventListener('keyup', e => {
+        if (e.key === 'Enter') {
+          const value = typeInput.value;
+          logs.unshift({
+            fakeText: Math.random(),
+            realText: value,
+          });
+          display.innerHTML = logs.reduce((acc, e) => {
+            return (
+              acc +
+              `
+			<h1 class="message">${e.fakeText}</h1>
+			`
+            );
+          }, '');
+
+          const allKeyElements = display.querySelectorAll('.message');
+          allKeyElements.forEach((e, i) => {
+            e.mouseenter = () => {
+              displayAllKeys();
+              e.innerText = logs[i].realText;
+            };
+          });
+          typeInput.value = '';
+        }
+        typeDisplay.innerText = getXStr(typeInput.value.length);
+      });
+
+      typeInput.focus();
+    </script>
   </body>
 </html>

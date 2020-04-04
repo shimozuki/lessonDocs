@@ -1,24 +1,28 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<input class="type" type="text"/>
+<div class="typeDisplay"></div>
+<div class="display"></div>
 
-    <title>three.html</title>
-  </head>
-  <body>
-		<input class="type" type="text" />
-		<div class="container"></div>
-
-		<script>
+<script>
+const logs = []
 const type = document.querySelector('.type')
-const container = document.querySelector('.container')
+const typeDisplay = document.querySelector('.typeDisplay')
+const display = document.querySelector('.display')
 
-type.addEventListener('keyup', () => {
-	const value = type.value
-	container.innerText = value
+const renderLogs = () => {
+	display.innerHTML = logs.reduce((acc, e) => {
+		return acc + `
+		<h1>${e}</h1>
+		`
+	}, '')
+}
 
+type.addEventListener('keyup', (e) => {
+	if (e.key === "Enter") {
+		const value = type.value
+		logs.unshift(value)
+		renderLogs()
+		typeInput.innerText = ''
+	}
+		typeDisplay.innerText = type.value
 })
-		</script>
-  </body>
-</html>
+</script>
