@@ -25,7 +25,9 @@
       const displayAllKeys = () => {
         const allKeyElements = display.querySelector('.message');
         allKeyElements.forEach((h1, h1Index) => {
+					console.log(h1, 'h1')
           h1.innerText = logs[h1Index].fakeText;
+					console.log(logs, 'logs')
         });
       };
 
