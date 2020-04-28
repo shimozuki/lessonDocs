@@ -12,6 +12,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "brain.js": "^2.0.0-alpha.12",
+    "express": "^4.17.1",
     "jest": "^24.9.0",
     "node-fetch": "^2.6.0",
     "request": "^2.88.2",
