@@ -1,4 +1,4 @@
-# JS5 Lesson Doc Abriged 
+#JS5 Lesson Doc Abriged 
 
 
 
@@ -145,3 +145,45 @@ __X-Forwarded-For__
 When your server application is behind a proxy
 that receives the request, this header gives
 you the ip address of the client
+
+Sample POST request
+
+```
+fetch('https://songz.c0d3.com/api/todos', {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/json'
+    },
+  body: JSON.stringify({
+    task: 'learn request headers',
+    status: 'starting'
+  })
+}).then(res => res.json()).then(console.log)
+```
+
+Sample PATCH request
+
+```
+fetch('https://songz.c0d3.com/api/todos/0e750eff-f872-4ac4-a1b0-ec7a877b1d6e', {
+  method: 'PATCH',
+  headers: {
+    'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      status: 'completed'
+  })
+}).then(r => r.json()).then(console.log)
+```
+
+## Response
+
+3 parts
+
+1. __Status Code__
+A number that describes what happened
+
+2. __Headers__
+Provide information about the response
+
+3. __Body__ (Optional)
+Blob of data in the response.
