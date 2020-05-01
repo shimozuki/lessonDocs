@@ -13,7 +13,7 @@ Javascript Functions
 (https://www.notion.so/JS-5-System-Design-Theory-67e7ee647a1c429d8e60e82f13a8d286)
 
 
-# Extra Resources
+## Extra Resources
 -
 
 [HTML Forms]
@@ -29,5 +29,6 @@ Javascript Functions
 (https://github.com/greenc123/system-design-interview)
 
 
-Exercises
+## Overview Exercises
 
+__No Steps for Exercise 1__
