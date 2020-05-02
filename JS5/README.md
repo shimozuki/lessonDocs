@@ -1,4 +1,4 @@
-#JS5 Lesson Doc Abriged 
+#JS5 Lesson Doc Abridged 
 
 
 
