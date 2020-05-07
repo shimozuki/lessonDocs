@@ -164,7 +164,16 @@ const setupSignup = () => {
 
 const $appContainer = document.querySelector('.app-container')
 const startApp = () => {
-	// start here
+	fetch('https://js5.c0d3.com/auth/api/sessions')
+		.then(res => {
+			return res.json()
+		})
+		.then((body) => {
+			if (body.error) {
+				return setupLogin()
+			}
+		})
+		.catch(err => console.log(err))
 }
 
 startApp()
