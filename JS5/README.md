@@ -286,3 +286,11 @@ This is a commoa seperated string that tells the browser
 what request methods are allowed in the cross domain request
 
 
+## TAKEAWAYS
+
+__Client Side Rendering__
+- Client side rendering as a coding practice
+
+__Session__
+
+__Cross Site Request__

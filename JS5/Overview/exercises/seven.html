@@ -89,6 +89,24 @@
   }
 
   const render = () => {
+		fetch('https://js5.c0d3.com/auth/api/sessions', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			credentials: 'include',
+		}).then((r) => {
+			return r.json()
+		}).then((body) => {
+			if (body.error) {
+				return setupLogin()
+			}
+			if (body.username) {
+				globalUsername = body.username
+				render()
+			}
+		})
+
     $appContainer.innerHTML = `
 	<header>
 	  <h1>Todo List for ${globalUsername}</h1>
@@ -181,11 +199,17 @@
         },
         body: JSON.stringify({
           username: $username.value,
-          email: $email.value,
-          name: $name.value,
           password: btoa($password.value),
         }),
-      });
+			}).then((response) => {
+				console.log(response.status)
+				return response.json()
+			}).then((body) => {
+				if (body.username) {
+					gloablUsername = body.username
+					render()
+				}
+			})
     });
   };
 

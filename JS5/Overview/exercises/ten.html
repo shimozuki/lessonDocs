@@ -61,10 +61,38 @@
       const $h1 = todoContainer.querySelector('h1');
       $h1.addEventListener('click', () => {
         // Update the todo element
+				fetch(`https://js5.c0d3.com/todolist/api/todos${todo.id}`, {
+					credentials: 'include',
+					method: 'PATCH',
+					headers {
+						'content-type': 'application/json'
+					},
+					body: JSON.stringify({
+						complete: !todo.complete
+					})
+				}).then(render)
       });
+
+			$save.addEventListener('click', () => {
+				fetch(`https://js5.c0d3.com/todolist/api/todos${todo.id}`, {
+					credentials: 'include',
+					method: 'PATCH',
+					headers: {
+						'content-type': 'application/json'
+					},
+					body: JSON.stringify({
+						text: $todoInput.value
+					})
+				}).then(render)
+			})
+
       const $delete = todoContainer.querySelector('.delete');
       $delete.addEventListener('click', () => {
         // Delete the todo element from the server
+				fetch('https://js5.c0d3.com/todolist/api/todos', {
+					method: 'DELETE',
+					credentials: 'include'
+				}).then(render)
       });
     };
 
@@ -81,14 +109,57 @@
       $cancel.addEventListener('click', renderNormal);
       const $todoInput = todoContainer.querySelector('.todo-edit-input');
       const $save = todoContainer.querySelector('.save');
-      $save.addEventLsitener('click', () => {
+      $save.addEventListener('click', () => {
         // Update the todo element
+			  const $todolist = $appContainer.querySelector('.todolist')
+				fetch('https://js5.c0d3.com/todolist/api/todos', {
+					credentials: 'include',
+				}).then(r => {
+					return r.json()
+				}).then(arr => {
+					arr.forEach(todo => {
+						new Todo(todo, $todolist)
+					})
+				})
       });
     };
     renderNormal();
   }
 
   const render = () => {
+		fetch('https://js5.c0d3.com/todolist/api/todos', {
+			method: 'GET',
+			credentials: 'include',
+			headers: {
+				'content-type': 'application/json'
+			},
+			body: JSON.stringify({
+				text: input.value
+			})
+		}).then(r => {
+			return r.json()
+		}).then(res => {
+			console.log(res, 'array')
+		})
+
+		fetch('https://js5.c0d3.com/auth/api/sessions', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json'
+			},
+			credentials: 'include',
+		}).then((r) => {
+			return r.json()
+		}).then((body) => {
+			if (body.error) {
+				return setupLogin()
+			}
+			if (body.username) {
+				globalUsername = body.username
+				render()
+			}
+		})
+
     $appContainer.innerHTML = `
 	<header>
 	  <h1>Todo List for ${globalUsername}</h1>
@@ -181,11 +252,17 @@
         },
         body: JSON.stringify({
           username: $username.value,
-          email: $email.value,
-          name: $name.value,
           password: btoa($password.value),
         }),
-      });
+			}).then((response) => {
+				console.log(response.status)
+				return response.json()
+			}).then((body) => {
+				if (body.username) {
+					gloablUsername = body.username
+					render()
+				}
+			})
     });
   };
 
