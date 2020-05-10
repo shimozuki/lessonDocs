@@ -1,4 +1,6 @@
-#JS5 Lesson Doc Abridged 
+# JS5 Lesson Doc Abridged 
+
+
 
 
 
@@ -42,9 +44,13 @@ DNS
 
 
 
+
+
 ## IP Addresses
 
 Every machine on the internet will have an IP Address.
+
+
 
 
 
@@ -53,6 +59,8 @@ Every machine on the internet will have an IP Address.
 1. The server sends a request to a server.
 2. When the server recieves a request, it sends back a response.
 3. The browser
+
+
 
 
 
@@ -72,6 +80,8 @@ Every request has at most 3 parts.
 3. __Body__ (Blob of data in the request)
 - The request shows of data should be handled
 - Ex. (strings, JSON, files, videos etc.)
+
+
 
 
 
@@ -101,6 +111,8 @@ __OPTIONS__
 - Sent by the browser for security reasons
 - Will send options before cross-domain requests
 - pre-flight requests
+
+
 
 
 
@@ -177,6 +189,8 @@ fetch('https://songz.c0d3.com/api/todos/0e750eff-f872-4ac4-a1b0-ec7a877b1d6e', {
 
 
 
+
+
 ## Response
 
 3 parts
@@ -189,6 +203,8 @@ Provide information about the response
 
 3. __Body__ (Optional)
 Blob of data in the response.
+
+
 
 
 
@@ -241,6 +257,8 @@ use its own data saved from the previous requests.
 
 
 
+
+
 ## Headers
 
 __Cache-Control__
@@ -286,11 +304,104 @@ This is a commoa seperated string that tells the browser
 what request methods are allowed in the cross domain request
 
 
+
+
+
 ## TAKEAWAYS
 
 __Client Side Rendering__
-- Client side rendering as a coding practice
+- Client side rendering as a coding practice as a coding
+practice where you change the page changing the HTML
+directly using JavaScript.
 
 __Session__
+A session is the duration in which a user is logged in.
 
 __Cross Site Request__
+A cross site request is a request that the browser sends
+that goes to a different hostname than the site that is 
+currently on.
+
+
+
+
+
+## REST
+
+REST METHODS
+
+- POST
+- GET
+- PATCH
+- DELETE
+
+It has becomen an industry best practice to use rest.
+
+__REST__ stands for representational state transfer.
+
+
+
+
+
+## SETTING UP A PROJECT
+
+Setting up a project in `node` in terminal.
+
+1. `mkdir` Create a folder or make directory.
+2. `cd` change directory into the folder.
+3. `npm init` inside the folder.
+
+__Package.json__
+
+This is a big string (not a javascript object) 
+
+__Scripts__
+    
+`scripts` section allows you to define commands.
+You can run your file by typing `npm run start`
+
+__Adding libraries__
+
+`npm i --save [library]`
+
+This lets your use other libraries that other people
+have written.
+
+They probably ran into the same problems that you had
+and wrote a library to help work around that problem.
+
+
+
+
+
+## Server
+
+First create a project and add a library called `express`.
+Express is the most popular JavaScript server as of 2020.
+
+`app.listen` keeps your application running so you can
+listen to incoming requests.
+
+Usually it is afe to pick a number 3000 and higher
+
+__Only one application may list to any post at a given time__
+
+
+__Request Handler__
+
+The request handler function runs when a request comes into the 
+function
+
+The only request methods your can experiment with are
+request without a body: `GET` and `DELETE`
+
+Sample code to send back 'ok' when you recieve a 
+`DELETE` request at the '/hello'
+and sends back HTML when we recieve a `GET` request
+
+The first argument specifies a url path string common patterns: 
+- `/hello`
+- `['/hello', '/world'] run request when either path matches
+- `/*` (Run for all paths)
+
+
