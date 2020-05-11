@@ -402,6 +402,181 @@ and sends back HTML when we recieve a `GET` request
 The first argument specifies a url path string common patterns: 
 - `/hello`
 - `['/hello', '/world'] run request when either path matches
-- `/*` (Run for all paths)
+- `/*`(Run for all paths) */
 
+
+
+
+## Request & Response Headers
+
+To set a response heder, we run the set function in the response
+object before sending back a response.
+
+`set` takes in an object we want to set.
+
+To read a request header, we can run the `get` function
+in the request object and pass in the string of the 
+header we want.
+
+
+
+
+
+### Cookies
+
+One path that can be sent is a `set-cookie` response header
+to the browser to set a header.
+
+The second path tells the user what cookie they have
+
+
+
+
+### Cache-Control
+
+If you want to tell the browser to save the response for a 
+period of time so it does not send a request to you, you can
+send back a `Cache-Control` header with a value of `max-age=120`
+
+This tells the browser to save the response for 120 seconds.
+
+Setting `cache-control` headers in your response can help you
+reduce the number of request you receive.
+
+If you open a new tab to the same url with a cache, you will notice
+that the page loads instantly, nmeaning the browser did not send
+the request.
+
+You can also `fetch` the url and see that the network request gets
+the response instantly.
+
+
+
+
+
+## Request & Response Objects 
+
+### Request
+
+https://www.yoursite.com/05/22/2012/index.html?source=brilliantcampaign
+
+Protocol - [https]
+Hostname - [www.yoursite.com]
+Path - [05/22/2012/index.html?]
+Parameters - [source=brilliantcampaign]
+
+Sometimes you can specify for the path itself to be a variable
+by adding a `:` in front of the variable name
+
+#### Properties
+
+__params__
+- An object with key / value pair based on the variables in URL
+
+__query__
+- An object with key / value pairs based on the url __query parameters__
+
+__hostname__
+- The url's hostname
+
+__ip__
+- The address of the machine that sent the request
+- Typically the address of a load balancer's proxy not device
+- To get the original id use `x-forwarded-for` request headers
+
+__headers__
+- Request headers, typically accessed using `get`
+
+__body__
+- The body of the incoming request
+
+#### Functions
+
+__get__
+- Allows you to retrieve the request header
+
+__req.get('authorization')__
+returns the authorization value in the Authorization header
+
+__req.get('x-forwarded-for')__
+returns the ip address of the originla machine that sent
+the request if the request went through a proxy.
+
+### Response
+
+__send__
+Takes in a string and sets the response body and sends the response
+
+__res.send('<h1>hello</h1>')__
+Sends back a response with the string in the body
+
+__status__
+Takes in a number and sets the status of the response
+
+`res.status(400).send(`wrong input`)`
+- sends back a response with a status code 400 and a
+string in the response body
+
+__redirect__
+Takes in a url string and set the response status code to 302.
+When the browser recieves the response, it will send a new request
+to the url you specified
+
+`res.redirect('https://google.com')
+Redirects to google.com
+
+__set__ 
+- Sets a response header. Two ways to do this:
+
+__json__
+- Sets the response header `content-type` to JSON and sends
+back a JSON string. Usually for APIs to send back data.
+
+__sendFile__
+- Takes in a file path and sends back a file
+`res.sendFile('./funny/png')`
+Sends back an image
+
+
+__hearbeat is a concept where you send a request to the server
+constantly to get data or simply let the server know you are 
+still connected.
+
+
+
+
+
+## Middleware
+
+You can pass in a third argument to request handlers.
+
+
+
+
+
+## Authentication
+
+Industry standards for building authentication
+
+1. When the user inputs their information on their browser, make sure 
+the password input field has the correct type.
+- This way the password is never revealed on the screen.
+
+(optional) 
+2. When the user hits the submit button, make sure the encrpyt their
+password. Many companies don't do this.
+
+3. When sending a newtwork request to the server, make sure to send the
+data via a POST request so the data is in the body.
+
+4. When you recieve a user's password on the server, you should not 
+store the user's password into your database. Instead, you need
+to do a __one way encryption__.
+- This means that the developer will not be able to see the password
+without running one way encryption on the password in the database.
+- The higher the salt level, the slower the encryption.
+
+5. When you send back the user data as a response or console.log the
+user information, make sure to remove the password field from the
+user before logging.
 
