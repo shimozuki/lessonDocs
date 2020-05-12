@@ -550,6 +550,44 @@ still connected.
 
 You can pass in a third argument to request handlers.
 
+__Middleware__ is a concept where a request goes through 
+a function and before reaching the main function. The 
+function in the middle is called middleware.
+
+__Middleware__ is simply a concept. It is not a special
+function or anything. It is simply a label.
+
+Sometimes you may want to run middleware on different paths
+and different request methods.
+
+Your middleware can also set a property on the request. 
+
+All the following request handlers will be able to use the 
+request property.
+
+At many companies, a common practice is to have a middleware
+to set a user object into the request object so all request
+handlers can access user info (username, name, location, etc.)
+
+### Helper Middlewars
+
+There are a few middlewares use frequently.
+
+__Express.static__
+
+Creates a path for every file in your folder
+
+__Express.json__
+
+This will be able to get the request body
+from request methods that has a request body: POST, PUT
+
+__Multer__
+
+This middleware helps process file uploads and puts a `files`
+property in the request object when a user uploads a file.
+
+
 
 
 
@@ -580,3 +618,7 @@ without running one way encryption on the password in the database.
 user information, make sure to remove the password field from the
 user before logging.
 
+
+
+
+# Challenges
