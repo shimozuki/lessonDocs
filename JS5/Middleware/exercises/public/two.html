@@ -1,0 +1,42 @@
+<!DOCTYPE >
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>two.html</title>
+  </head>
+  <body>
+    <h1>This is going to be tight</h1>
+
+    <video class="video"></video>
+    <button class="submit">Submit</button>
+
+    <script>
+      const videoElement = document.querySelector('.video');
+      const submit = document.querySelector('.submit');
+
+      navigator.mediaDevices
+        .getUserMedia({
+          video: true,
+          audio: true,
+        })
+        .then(stream => {
+          videoElement.srcObject = stream;
+          videoElement.play();
+        });
+
+    submit.addEventListener('click', () => {
+			fetch('/', {
+				method: 'POST',
+				body: JSON.stringify({
+
+				})
+			})
+		})
+    </script>
+  </body>
+</html>

@@ -9,9 +9,50 @@
     <title>one.html</title>
   </head>
   <body>
-    <form method="POST" action="/todos">
-      <input type="text" class="todo"/><input type="submit" value="Submit" />
-    </form>
-		<div class="container"></div>
+    <input type="text" name="todo" class="type" />
+    <button class="submit">Submit</button>
+
+    <ul class="container"></ul>
+    <script>
+      const container = document.querySelector('.container');
+      const type = document.querySelector('.type');
+      const submit = document.querySelector('.submit');
+
+      submit.addEventListener('click', () => {
+				console.log('Posting')
+        fetch('/todo', {
+          method: 'POST',
+          body: type.value,
+        });
+      });
+
+      fetch('/todo')
+	    .then(res =>  {
+		//console.log(res.json(), 'res')
+    return res.json()
+			})
+        .then(data => {
+					console.log(data, 'data')
+				})
+					/*
+          data.forEach((todo, i) => {
+            container.innerHTML += `
+			  <li class="todo">${todo}</li>
+			`;
+            const todos = document.querySelectorAll('.todo');
+
+            todos.forEach(ele => {
+              ele.addEventListener('click', () => {
+                const result = confirm(`Are you sure?`);
+
+                if (result) {
+                  ele.remove();
+                }
+              });
+            });
+          });
+        });
+				*/
+    </script>
   </body>
 </html>

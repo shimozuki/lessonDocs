@@ -622,3 +622,47 @@ user before logging.
 
 
 # Challenges
+
+
+## Testing
+
+In the previous lessons you test functions.
+Those tests are called __unit tests__.
+
+You treat each function lik a unit of code you are 
+testing each function (aka unit) of code.
+
+__Integration Test__ is when you write tests that
+start a server, send a request, and expect response
+to be a certian way.
+
+When you send a request, the server request handler
+could be running many many different functions before 
+sending back a response.
+
+Integration tests are appropriately named because it is
+making sure all your functions are properly integrated 
+with each other.
+
+To write your code in a way that can be tested well,
+you must provide two functions: 
+
+`startServer` and `closeServer`
+
+that could be run in the beginning and end of your test.
+
+`startServer` will take in a port, but the port may be
+unavailable.
+
+Close the connection and try with the next port number
+until you are able to successfully connect to a port.
+
+
+### Start Server
+
+`app.listen` takes in an optional second argument, a
+function, that runs when the connection is done.
+
+Our startServer function will use this to return a
+promise that resolves.
+
