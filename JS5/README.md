@@ -666,3 +666,24 @@ function, that runs when the connection is done.
 Our startServer function will use this to return a
 promise that resolves.
 
+Since starting and stopping a server takes time,
+you need to make sure your test doesn't start until
+the server is completely started by using `beforeAll()`
+
+Also you need to make sure you don't stop the server
+until your tests are done by using `afterAll()`
+
+
+### Production Systems
+
+If you website is going to have 1000s of requests every
+minute, you will need to have more than one server.
+
+1 server will simply not be able to handle that many
+request.
+
+To solve this problem, you need a proxy that forwards the 
+requests to multiple servers.
+
+__A Load Balancer__ is a proxy that forwards requests to
+different servers to divide the load for each server.
