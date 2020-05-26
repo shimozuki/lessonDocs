@@ -15,6 +15,7 @@
     "cors": "^2.8.5",
     "cypress": "^4.6.0",
     "express": "^4.17.1",
+    "http-proxy": "^1.18.1",
     "jest": "^24.9.0",
     "multer": "^1.4.2",
     "node-fetch": "^2.6.0",

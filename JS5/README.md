@@ -1,9 +1,5 @@
 # JS5 Lesson Doc Abridged 
 
-
-
-
-
 ## Overview
 
 Protocol
@@ -43,15 +39,9 @@ DNS
 - __IP Address__ is the address of a computer in the internet.
 
 
-
-
-
 ## IP Addresses
 
 Every machine on the internet will have an IP Address.
-
-
-
 
 
 ## Request & Response
@@ -59,9 +49,6 @@ Every machine on the internet will have an IP Address.
 1. The server sends a request to a server.
 2. When the server recieves a request, it sends back a response.
 3. The browser
-
-
-
 
 
 ## Request
@@ -80,9 +67,6 @@ Every request has at most 3 parts.
 3. __Body__ (Blob of data in the request)
 - The request shows of data should be handled
 - Ex. (strings, JSON, files, videos etc.)
-
-
-
 
 
 ## Request Methods
@@ -111,9 +95,6 @@ __OPTIONS__
 - Sent by the browser for security reasons
 - Will send options before cross-domain requests
 - pre-flight requests
-
-
-
 
 
 ## Request Headers
@@ -188,9 +169,6 @@ fetch('https://songz.c0d3.com/api/todos/0e750eff-f872-4ac4-a1b0-ec7a877b1d6e', {
 ```
 
 
-
-
-
 ## Response
 
 3 parts
@@ -203,9 +181,6 @@ Provide information about the response
 
 3. __Body__ (Optional)
 Blob of data in the response.
-
-
-
 
 
 ## Status Codes
@@ -256,9 +231,6 @@ use its own data saved from the previous requests.
 - internal error and could not process the request
 
 
-
-
-
 ## Headers
 
 __Cache-Control__
@@ -304,9 +276,6 @@ This is a commoa seperated string that tells the browser
 what request methods are allowed in the cross domain request
 
 
-
-
-
 ## TAKEAWAYS
 
 __Client Side Rendering__
@@ -323,9 +292,6 @@ that goes to a different hostname than the site that is
 currently on.
 
 
-
-
-
 ## REST
 
 REST METHODS
@@ -338,9 +304,6 @@ REST METHODS
 It has becomen an industry best practice to use rest.
 
 __REST__ stands for representational state transfer.
-
-
-
 
 
 ## SETTING UP A PROJECT
@@ -369,9 +332,6 @@ have written.
 
 They probably ran into the same problems that you had
 and wrote a library to help work around that problem.
-
-
-
 
 
 ## Server
@@ -405,8 +365,6 @@ The first argument specifies a url path string common patterns:
 - `/*`(Run for all paths) */
 
 
-
-
 ## Request & Response Headers
 
 To set a response heder, we run the set function in the response
@@ -419,17 +377,12 @@ in the request object and pass in the string of the
 header we want.
 
 
-
-
-
 ### Cookies
 
 One path that can be sent is a `set-cookie` response header
 to the browser to set a header.
 
 The second path tells the user what cookie they have
-
-
 
 
 ### Cache-Control
@@ -449,9 +402,6 @@ the request.
 
 You can also `fetch` the url and see that the network request gets
 the response instantly.
-
-
-
 
 
 ## Request & Response Objects 
@@ -537,13 +487,9 @@ __sendFile__
 `res.sendFile('./funny/png')`
 Sends back an image
 
-
 __hearbeat is a concept where you send a request to the server
 constantly to get data or simply let the server know you are 
 still connected.
-
-
-
 
 
 ## Middleware
@@ -569,6 +515,7 @@ At many companies, a common practice is to have a middleware
 to set a user object into the request object so all request
 handlers can access user info (username, name, location, etc.)
 
+
 ### Helper Middlewars
 
 There are a few middlewares use frequently.
@@ -586,10 +533,6 @@ __Multer__
 
 This middleware helps process file uploads and puts a `files`
 property in the request object when a user uploads a file.
-
-
-
-
 
 
 ## Authentication
@@ -617,8 +560,6 @@ without running one way encryption on the password in the database.
 5. When you send back the user data as a response or console.log the
 user information, make sure to remove the password field from the
 user before logging.
-
-
 
 
 # Challenges
@@ -687,3 +628,37 @@ requests to multiple servers.
 
 __A Load Balancer__ is a proxy that forwards requests to
 different servers to divide the load for each server.
+
+When the server receives the request from the proxy,
+`request.ip` will be the address of the proxy.
+
+The actualy request of the originla sender will be 
+in the `X-Forwarded-For` request header.
+
+```
+graph LR
+  A[Browser] -->|send request| C{Proxy}
+  C -->|first request| D[Server1]
+  C -->|2nd request| E[Server2]
+  C -->|3rd request| F[Server3]
+```
+
+Proxy servers can be used for:
+- HTTPS Certificates
+- Load balancing
+- Securing servers so the real servers
+cannot be directly accessible
+
+
+### HTTPS
+`http` is insecure.
+
+Broswers will wonly allow `https` requests to go through.
+To enable `https` you must provide a certificate to prove
+that you own the domain name.
+
+This certificate comes in two parts: Key and Cert.
+
+### Containers
+
+
