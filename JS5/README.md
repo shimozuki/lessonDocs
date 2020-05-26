@@ -661,4 +661,56 @@ This certificate comes in two parts: Key and Cert.
 
 ### Containers
 
+Conatains are used so each application runs as its own
+virtual machine. This way, a malicious application will
+not be able to affect other applications running on the
+server.
 
+Docker is a wll known company that helps manage containers.
+
+When you create a container, you may want to specify which
+applications your application may need to run.
+
+#### Kubernetes
+
+Containers are not only good for sercurity, with containers,
+you can deploy your application to multiple servers and 
+make sure every server has the same code and system setup.
+
+If you have 1000 severs it's a pain to manually update 
+all of your servers manually.
+
+Kubernetes helps deploy changes across all servers.
+
+### Caching
+
+Storing previously computed results for faster lookup
+the second time you compute it.
+
+### The Internet
+
+### Router (Intranet)
+
+The router provides WIFI / ethernet ports that your 
+computer and other electronic gadgets can connect to.
+
+Whenever a device connects to a router, the router gives
+the device an IP Address. An IP Address specifies the 
+devices address. Since the router keeps track of all 
+devices connected to it via the IP address, the router
+helps faciliate communication between all devices.
+
+## System Design
+
+1. __User Experience__
+It's important to 100% understand how the user will
+be using your app. You are not the user if you're 
+reading this less than 5% of people on the planet
+can or do program computers.
+
+2. __APIs__
+You need to design APIs to power the user experience
+in step 1. Think about making it fast for the user.
+
+3. __Scaling__
+Time &  Space O(n)
