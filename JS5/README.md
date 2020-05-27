@@ -702,15 +702,36 @@ helps faciliate communication between all devices.
 
 ## System Design
 
-1. __User Experience__
+__User Experience__
 It's important to 100% understand how the user will
 be using your app. You are not the user if you're 
 reading this less than 5% of people on the planet
 can or do program computers.
 
-2. __APIs__
+__APIs__
 You need to design APIs to power the user experience
 in step 1. Think about making it fast for the user.
 
-3. __Scaling__
+__Scaling__
 Time &  Space O(n)
+
+1. First mention caching the data to keep the server
+requests low.
+
+- Fetching from the database is expensive because
+you can easily have 100s of servers, but only a few
+databases.
+
+- The more databases you have, the more syncing you
+have to do.
+
+2. Then, you will have to shard your database
+(split the database up)
+
+- There are many ways to split the data including
+but not limited to geo-location, time, alphabetical.
+
+3. DNS or a nameserver so that during DNS resolution
+you can set split the request to different ip addresses
+so your server doesn't accidentally get overloaded.
+
