@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <style>
+      * {
+        text-align: center;
+      }
+      .row {
+        display: flex;
+        justify-content: space-evenly;
+      }
+
+      .todoList {
+        width: 40vw;
+        height: 50vw;
+        margin: 0 auto;
+        overflow: scroll;
+        border: 1px solid black;
+      }
+      .todo {
+        border: 1px solid #D3D3D3;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>Todo List</h1>
+    <div class="row">
+      <h1>Add</h1>
+      <h1>Remove</h1>
+    </div>
+
+    <div class="row">
+      <input class="add" type="text" placeholder="add" />
+      <input class="remove" type="text" placeholder="remove" />
+    </div>
+
+    <div class="row">
+      <button class="addBtn">Add</button>
+      <button class="removeBtn">Delete</button>
+    </div>
+    <hr />
+
+    <div class="todoList"></div>
+
+    <script>
+      const addInp = document.querySelector('.add');
+      const addBtn = document.querySelector('.addBtn');
+
+      const removeInp = document.querySelector('.remove');
+      const removeBtn = document.querySelector('.removeBtn');
+      const todoList = document.querySelector('.todoList');
+
+      const render = () => {
+        todoList.innerHTML = '';
+
+        fetch('/api/todo')
+          .then(res => res.json())
+          .then(data => {
+						console.log('data', data)
+            data.forEach(item => {
+              const todo = document.createElement('div');
+              todo.classList.add('todo');
+              todo.innerText = item;
+              todoList.append(todo);
+            });
+          });
+      };
+
+      removeBtn.addEventListener('click', () => {
+        const delItem = removeInp.value.toLowerCase();
+
+        fetch('/api/todo', {
+          method: 'DELETE',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            item: delItem,
+          }),
+        });
+        render();
+      });
+
+      addBtn.addEventListener('click', () => {
+        const addItem = addInp.value.toLowerCase();
+
+        fetch('/api/todo', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            item: addItem,
+          }),
+        });
+
+        render();
+      });
+
+      render();
+    </script>
+  </body>
+</html>
